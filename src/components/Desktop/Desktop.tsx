@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import closedFolder from '../../assets/folder-closed.png';
+import { categories } from '../data/categories';
+import Window from '../Window';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
 
@@ -9,6 +12,19 @@ const Container = styled.div`
     flex-wrap: wrap;
     padding-top: 200px;
     height: 100%;
+    position: relative;
+`;
+
+const WindowWrapper = styled.div<{ windowOpen: boolean }>`
+    display: none;
+    ${props => props.windowOpen && `
+        display: block;
+        position: absolute;
+        left: 100px;
+        top: 20px;
+        height: 100%;
+        width: 100%;
+    `}
 `;
 
 const Figure =styled.figure`
@@ -28,32 +44,44 @@ const FigCap = styled.figcaption`
 `;
 
 const Desktop = () => {
+    const [windowOpen, setWindowOpen] = useState<boolean>(false);
+    const [folder, setFolder] = useState<string>('');
+
+    const openWindow = (event: any) => {
+        setWindowOpen(true);
+        
+        const className = event.target.className.split(' ');
+        const category = className[className.length - 1];
+        
+        switch (category) {
+            case categories[0].name:
+                setFolder(categories[0].title)
+                break;
+            case categories[1].name:
+                setFolder(categories[1].title)
+                break;
+            case categories[2].name:
+                setFolder(categories[2].title)
+                break;
+            case categories[3].name:
+                setFolder(categories[3].title)
+                break;    
+        };
+    };
+    
     return (
         <Container>
-            <Figure>
-                <Img src={closedFolder} alt="Fichier" />
-                <FigCap>
-                    About me
-                </FigCap>
-            </Figure>
-            <Figure>
-                <Img src={closedFolder} alt="Fichier" />
-                <FigCap>
-                    CV
-                </FigCap>
-            </Figure>
-            <Figure>
-                <Img src={closedFolder} alt="Fichier" />
-                <FigCap>
-                    Contact
-                </FigCap>
-            </Figure>
-            <Figure>
-                <Img src={closedFolder} alt="Fichier" />
-                <FigCap>
-                   Projects
-                </FigCap>
-            </Figure>
+            <WindowWrapper windowOpen={windowOpen}>
+                <Window folder={folder} setWindowOpen={setWindowOpen} />
+            </WindowWrapper>
+            {categories.map((entrie, index) => (
+                <Figure key={index} onClick={openWindow}>
+                    <Img className={entrie.name} src={closedFolder} alt={`Dossier ${entrie.title}`} />
+                    <FigCap className={entrie.name}>
+                        {entrie.title}
+                    </FigCap>
+                </Figure>
+            ))}
         </Container>
     );
 };
