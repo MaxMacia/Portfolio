@@ -5,7 +5,7 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	background-color: ${colors.secondary};
+	background-color: ${colors.grey};
     height: 40px;
 `;
 

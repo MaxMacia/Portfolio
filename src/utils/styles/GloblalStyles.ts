@@ -1,9 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-    body {
+    body, html, #root {
         font-family: 'Montserrat', sans-serif;
         margin: 0;
+        height: 100%;
     }
 `;
 

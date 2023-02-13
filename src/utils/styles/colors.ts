@@ -1,3 +1,5 @@
 export const colors = {
-    secondary: '#e8ebed'
+    grey: '#e8ebed',
+    white: '#fff',
+    desktop: '#3f92c7'
 };
