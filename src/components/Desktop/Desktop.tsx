@@ -38,11 +38,26 @@ const SecondWindowWrapper = styled.div<{ secondWindowOpen: boolean }>`
 		`
         display: block;
         position: absolute;
-        left: 150px;
-        top: 50px;
+        left: 130px;
+        top: 70px;
         height: 100%;
         width: 100%;
         z-index: 2;
+    `}
+`;
+
+const ThirdWindowWrapper = styled.div<{ thirdWindowOpen: boolean }>`
+	display: none;
+	${(props) =>
+		props.thirdWindowOpen &&
+		`
+        display: block;
+        position: absolute;
+        left: 90px;
+        top: 130px;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
     `}
 `;
 
@@ -71,8 +86,10 @@ const FigCap = styled.figcaption`
 const Desktop = () => {
 	const [firstWindowOpen, setFirstWindowOpen] = useState<boolean>(false);
 	const [secondWindowOpen, setSecondWindowOpen] = useState<boolean>(false);
+    const [thirdWindowOpen, setThirdWindowOpen] = useState<boolean>(false);
 	const [firstWindowType, setFirstWindowType] = useState<string>('');
     const [secondWindowType, setSecondWindowType] = useState<string>('');
+    const [thirdWindowType, setThirdWindowType] = useState<string>('');
 
 	const openWindow = (event: any) => {
 		setFirstWindowOpen(true);
@@ -105,21 +122,41 @@ const Desktop = () => {
                     setFirstWindowType={setFirstWindowType}
                     secondWindowType={secondWindowType}
                     setSecondWindowType={setSecondWindowType}
+                    thirdWindowType={thirdWindowType}
+                    setThirdWindowType={setThirdWindowType}
 					setFirstWindowOpen={setFirstWindowOpen}
 					setSecondWindowOpen={setSecondWindowOpen}
+                    setThirdWindowOpen={setThirdWindowOpen}
 				/>
 			</FirstWindowWrapper>
 			<SecondWindowWrapper secondWindowOpen={secondWindowOpen}>
 				<Window
 					level={2}
 					firstWindowType={firstWindowType}
-					setFirstWindowType={setFirstWindowType}
+                    setFirstWindowType={setFirstWindowType}
                     secondWindowType={secondWindowType}
                     setSecondWindowType={setSecondWindowType}
-                    setFirstWindowOpen={setFirstWindowOpen}
+                    thirdWindowType={thirdWindowType}
+                    setThirdWindowType={setThirdWindowType}
+					setFirstWindowOpen={setFirstWindowOpen}
 					setSecondWindowOpen={setSecondWindowOpen}
+                    setThirdWindowOpen={setThirdWindowOpen}
 				/>
 			</SecondWindowWrapper>
+            <ThirdWindowWrapper thirdWindowOpen={thirdWindowOpen}>
+				<Window
+					level={3}
+					firstWindowType={firstWindowType}
+                    setFirstWindowType={setFirstWindowType}
+                    secondWindowType={secondWindowType}
+                    setSecondWindowType={setSecondWindowType}
+                    thirdWindowType={thirdWindowType}
+                    setThirdWindowType={setThirdWindowType}
+					setFirstWindowOpen={setFirstWindowOpen}
+					setSecondWindowOpen={setSecondWindowOpen}
+                    setThirdWindowOpen={setThirdWindowOpen}
+				/>
+			</ThirdWindowWrapper>
 			{categories.map((entrie, index) => (
 				<Figure key={index} onClick={openWindow} isOnDesktop={index < 4}>
 					<Img

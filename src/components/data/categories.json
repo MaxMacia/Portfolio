@@ -17,10 +17,64 @@
     },
     {
         "name": "OpenClassrooms",
-        "title": "OpenClassrooms"
+        "title": "OpenClassrooms",
+        "subDirectories": [
+            {
+                "name": "Booki",
+                "title":"Booki",
+                "ghPages": true
+            },
+            {
+                "name": "Ohmyfood!",
+                "title": "Ohmyfood!",
+                "ghPages": true
+            },
+            {
+                "name": "La-Panthère",
+                "title": "La Panthère",
+                "ghPages": true
+            },
+            {
+                "name": "Kanap",
+                "title": "Kanap",
+                "ghPages": false
+            },
+            {
+                "name": "HotTakes",
+                "title": "HotTakes",
+                "ghPages": true
+            },
+            {
+                "name": "Kasa",
+                "title": "Kasa",
+                "ghPages": true
+            }
+        ]
     },
     {
         "name": "Perso",
-        "title": "Perso"
+        "title": "Perso",
+        "subDirectories": [
+            {
+                "name": "Portfolio",
+                "title": "Portfolio",
+                "ghPages": true
+            },
+            {
+                "name": "Rezo",
+                "title": "Rezo",
+                "ghPages": false
+            },
+            {
+                "name": "Calculator",
+                "title": "Calculator",
+                "ghPages": true
+            },
+            {
+                "name": "Animations-CSS",
+                "title": "Animations CSS",
+                "ghPages": true
+            }
+        ]
     }
 ]
