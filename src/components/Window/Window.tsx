@@ -5,6 +5,7 @@ import emailFile from '../../assets/fichier-email.png';
 import closedFolder from '../../assets/folder-closed.png';  
 import styled from "styled-components";
 import { colors } from "../../utils/styles/colors";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
     border: 1px solid ${colors.black};
@@ -15,6 +16,7 @@ const Container = styled.div`
 const TopBar = styled.div`
     border: 1px solid ${colors.black};
     background-color: ${colors.primary};
+    height: 4%;
     display: flex;
     justify-content: flex-start;
 `;
@@ -22,6 +24,7 @@ const TopBar = styled.div`
 const CloseButton = styled.i`
     color: ${colors.white};
     padding-left: 10px;
+    padding-top: 4px;
     cursor: pointer;
 `;
 
@@ -113,14 +116,60 @@ const ClosedFolderImg = styled.img`
 `;
 
 type Props = {
-    folder: string,
-    setWindowOpen: Function
+    level: number,
+    firstWindowType: string,
+    secondWindowType: string,
+    setFirstWindowType: Function,
+    setSecondWindowType: Function,
+    setFirstWindowOpen: Function,
+    setSecondWindowOpen: Function
 };
 
-const Window = ({ folder, setWindowOpen }: Props) => {
+const Window = ({ level, firstWindowType, secondWindowType, setFirstWindowType, setFirstWindowOpen, setSecondWindowType, setSecondWindowOpen }: Props) => {
+    const [windowLevel] = useState<number>(level);
+    const [path, setPath] = useState<string>('');
+
+    
+    useEffect(() => {
+        switch (windowLevel) {
+            case 1:
+                setPath(`/Maxence-Macia/Desktop/${firstWindowType}`);
+                break;
+            case 2:
+                setPath(`/Maxence-Macia/Desktop/Projects/${secondWindowType}`);
+                break;
+        }
+    }, [windowLevel, firstWindowType, secondWindowType]);
+
     const closeWindow = () => {
-        setWindowOpen(false);
+        switch (windowLevel) {
+            case 1:
+                setFirstWindowOpen(false);
+                setFirstWindowType('');
+                break;
+            case 2:
+                setSecondWindowOpen(false);
+                setSecondWindowType('');
+                break;
+        }
+       
     }
+
+    const openWindow = (event: any) => {
+        setSecondWindowOpen(true);
+        
+        const className = event.target.className.split(' ');
+		const category = className[className.length - 1];
+        
+        switch (category) {
+            case categories[4].name:
+                setSecondWindowType(categories[4].name)
+                break;
+            case categories[5].name:
+                setSecondWindowType(categories[5].name)
+                break; 
+        };
+    };
     
     return (
         <Container>
@@ -130,30 +179,34 @@ const Window = ({ folder, setWindowOpen }: Props) => {
             <TitleBar>
                 <Path>
                     <Paragraphe>
-                        {`/Maxence-Macia/Desktop/${folder}`}
+                        {path}
                     </Paragraphe>
                 </Path>
             </TitleBar>
             <WindowContent>
-                <TxtFile aboutMe={folder === 'About me'} >
+                <TxtFile aboutMe={firstWindowType === 'About-me'} >
                     <TxtFileImg src={txtFile} alt="Fichier txt" />
                     <FigCap> Read me</FigCap>
                 </TxtFile>
-                <HtmlFile cv={folder === 'CV'} contact={folder === 'Contact'}>
+                <HtmlFile cv={firstWindowType === 'CV'} contact={firstWindowType === 'Contact'}>
                     <HtmlFileImg src={htmlFile} alt="Fichier html" />
-                    <FigCap>{folder === 'CV' ? 'CV' : 'LinkedIn'}</FigCap>
+                    <FigCap>{firstWindowType === 'CV' ? 'CV' : 'LinkedIn'}</FigCap>
                 </HtmlFile>
-                <EmailFile contact={folder === 'Contact'}>
+                <HtmlFile cv={false} contact={firstWindowType === 'Contact'}>
+                    <HtmlFileImg src={htmlFile} alt="Fichier html" />
+                    <FigCap>github</FigCap>
+                </HtmlFile>
+                <EmailFile contact={firstWindowType === 'Contact'}>
                     <EmailFileImg src={emailFile} alt="Fichier email" />
                     <FigCap>e-mail</FigCap>
                 </EmailFile>
-                <ClosedFolder projects={folder === 'Projects'}>
-                    <ClosedFolderImg src={closedFolder} alt="Dossier OpenClassRooms" />
-                    <FigCap>OpenClassRooms</FigCap>
+                <ClosedFolder projects={firstWindowType === 'Projects' && secondWindowType === ''} onClick={openWindow}>
+                    <ClosedFolderImg className="OpenClassrooms" src={closedFolder} alt="Dossier OpenClassRooms" />
+                    <FigCap className="OpenClassrooms">OpenClassrooms</FigCap>
                 </ClosedFolder>
-                <ClosedFolder projects={folder === 'Projects'}>
-                    <ClosedFolderImg src={closedFolder} alt="Dossier Perso" />
-                    <FigCap>Perso</FigCap>
+                <ClosedFolder projects={firstWindowType === 'Projects' && secondWindowType === ''} onClick={openWindow}>
+                    <ClosedFolderImg className="Perso" src={closedFolder} alt="Dossier Perso" />
+                    <FigCap className="Perso">Perso</FigCap>
                 </ClosedFolder>
             </WindowContent>
         </Container>

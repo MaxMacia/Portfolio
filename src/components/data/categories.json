@@ -14,5 +14,13 @@
     {
         "name": "Projects",
         "title": "Projects"
+    },
+    {
+        "name": "OpenClassrooms",
+        "title": "OpenClassrooms"
+    },
+    {
+        "name": "Perso",
+        "title": "Perso"
     }
 ]
