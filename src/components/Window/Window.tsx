@@ -4,6 +4,7 @@ import htmlFile from '../../assets/fichier-html.png';
 import ghFile from '../../assets/fichier-github.png';
 import emailFile from '../../assets/fichier-email.png';
 import closedFolder from '../../assets/folder-closed.png';
+import cvMM from '../../assets/CV_Maxence_Macia.pdf';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
 import { useEffect, useState } from 'react';
@@ -142,6 +143,7 @@ type Props = {
 	setFirstWindowOpen: Function;
 	setSecondWindowOpen: Function;
 	setThirdWindowOpen: Function;
+    setTxtWindowOpen: Function
 };
 
 const Window = ({
@@ -155,6 +157,7 @@ const Window = ({
 	setSecondWindowOpen,
 	setThirdWindowType,
 	setThirdWindowOpen,
+    setTxtWindowOpen
 }: Props) => {
 	const [windowLevel] = useState<number>(level);
 	const [path, setPath] = useState<string>('');
@@ -256,6 +259,10 @@ const Window = ({
 		}
 	};
 
+    const openTxtWindow = () => {
+        setTxtWindowOpen(true);
+    };
+
 	return (
 		<Container>
 			<TopBar>
@@ -270,25 +277,31 @@ const Window = ({
 				</Path>
 			</TitleBar>
 			<WindowContent>
-				<TxtFile aboutMe={firstWindowType === 'About-me'}>
+				<TxtFile aboutMe={firstWindowType === 'About-me'} onClick={openTxtWindow}>
 					<TxtFileImg src={txtFile} alt="Fichier txt" />
 					<FigCap> Read me</FigCap>
 				</TxtFile>
-				<HtmlFile
-					cv={firstWindowType === 'CV'}
-					contact={firstWindowType === 'Contact'}
-				>
-					<HtmlFileImg src={htmlFile} alt="Fichier html" />
-					<FigCap>{firstWindowType === 'CV' ? 'CV' : 'LinkedIn'}</FigCap>
-				</HtmlFile>
-				<HtmlFile cv={false} contact={firstWindowType === 'Contact'}>
-					<HtmlFileImg src={ghFile} alt="Fichier html" />
-					<FigCap>github</FigCap>
-				</HtmlFile>
-				<EmailFile contact={firstWindowType === 'Contact'}>
-					<EmailFileImg src={emailFile} alt="Fichier email" />
-					<FigCap>e-mail</FigCap>
-				</EmailFile>
+				<a href={firstWindowType === 'CV' ? cvMM : "https://www.linkedin.com/in/maxence-macia-4ab2a617b/"} target="_blank">
+                    <HtmlFile
+                        cv={firstWindowType === 'CV'}
+                        contact={firstWindowType === 'Contact'}
+                    >
+                        <HtmlFileImg src={htmlFile} alt="Fichier html" />
+                        <FigCap>{firstWindowType === 'CV' ? 'CV' : 'LinkedIn'}</FigCap>
+                    </HtmlFile>
+                </a>
+				<a href='https://github.com/MaxMacia' target="_blank">
+                    <HtmlFile cv={false} contact={firstWindowType === 'Contact'}>
+                        <HtmlFileImg src={ghFile} alt="Fichier html" />
+                        <FigCap>github</FigCap>
+                    </HtmlFile>
+                </a>
+                <a href='mailto:maxence.macia@gmail.com'>
+                    <EmailFile contact={firstWindowType === 'Contact'}>
+                        <EmailFileImg src={emailFile} alt="Fichier email" />
+                        <FigCap>e-mail</FigCap>
+                    </EmailFile>
+                </a>
 				<ClosedFolder
 					projects={firstWindowType === 'Projects' && secondWindowType === '' && thirdWindowType === ''}
 					onClick={openSecondWindow}
@@ -334,6 +347,7 @@ const Window = ({
                         <ClosedFolder
                             key={index}
                             projects={thirdWindowType === `${entrie.name}`}
+                            onClick={openTxtWindow}
                         >
                             <ClosedFolderImg
                                 src={txtFile}
@@ -341,26 +355,30 @@ const Window = ({
                             />
                             <FigCap>{entrie.title} <br /> Read me</FigCap>
                         </ClosedFolder>
-                        <ClosedFolder
-                            key={index}
-                            projects={thirdWindowType === `${entrie.name}`}
-                        >
-                            <ClosedFolderImg
-                                src={ghFile}
-                                alt={`Repo gitHub ${entrie.title}`}
-                            />
-                            <FigCap>Repo <br /> gitHub</FigCap>
-                        </ClosedFolder>
-                        <ClosedFolder
-                            key={index}
-                            projects={thirdWindowType === `${entrie.name}` && entrie.ghPages === true}
-                        >
-                            <ClosedFolderImg
-                                src={htmlFile}
-                                alt={`page web ${entrie.title}`}
-                            />
-                            <FigCap>{entrie.title} <br /> Page web</FigCap>
-                        </ClosedFolder>
+                        <a href={`https://github.com/MaxMacia/Projet_OpenClassrooms_${entrie.name}.git`} target="_blank">
+                            <ClosedFolder
+                                key={index}
+                                projects={thirdWindowType === `${entrie.name}`}
+                            >
+                                <ClosedFolderImg
+                                    src={ghFile}
+                                    alt={`Repo gitHub ${entrie.title}`}
+                                />
+                                <FigCap>Repo <br /> gitHub</FigCap>
+                            </ClosedFolder>
+                        </a>
+                        <a href={`https://maxmacia.github.io/Projet_OpenClassrooms_${entrie.name}/`} target="_blank">
+                            <ClosedFolder
+                                key={index}
+                                projects={thirdWindowType === `${entrie.name}` && entrie.ghPages === true}
+                            >
+                                <ClosedFolderImg
+                                    src={htmlFile}
+                                    alt={`page web ${entrie.title}`}
+                                />
+                                <FigCap>{entrie.title} <br /> Page web</FigCap>
+                            </ClosedFolder>
+                        </a>
                     </ClosedFolderWrapper>
 				))}
 				{categories[5].subDirectories?.map((entrie, index) => (
@@ -383,7 +401,8 @@ const Window = ({
                         </ClosedFolder>
                         <ClosedFolder
                             key={index}
-                            projects={thirdWindowType === `${entrie.name}`}
+                            projects={thirdWindowType === `${entrie.name}` && index !== 3}
+                            onClick={openTxtWindow}
                         >
                             <ClosedFolderImg
                                 src={txtFile}
@@ -391,26 +410,30 @@ const Window = ({
                             />
                             <FigCap>{entrie.title} <br /> Read me</FigCap>
                         </ClosedFolder>
-                        <ClosedFolder
-                            key={index}
-                            projects={thirdWindowType === `${entrie.name}`}
-                        >
-                            <ClosedFolderImg
-                                src={ghFile}
-                                alt={`Repo gitHub ${entrie.title}`}
-                            />
-                            <FigCap>Repo <br /> gitHub</FigCap>
-                        </ClosedFolder>
-                        <ClosedFolder
-                            key={index}
-                            projects={thirdWindowType === `${entrie.name}` && entrie.ghPages === true}
-                        >
-                            <ClosedFolderImg
-                                src={htmlFile}
-                                alt={`page web ${entrie.title}`}
-                            />
-                            <FigCap>{entrie.title} <br /> Page web</FigCap>
-                        </ClosedFolder>
+                        <a href={`https://github.com/MaxMacia/${entrie.name}.git`} target="_blank">
+                            <ClosedFolder
+                                key={index}
+                                projects={thirdWindowType === `${entrie.name}` && index !== 3}
+                            >
+                                <ClosedFolderImg
+                                    src={ghFile}
+                                    alt={`Repo gitHub ${entrie.title}`}
+                                />
+                                <FigCap>Repo <br /> gitHub</FigCap>
+                            </ClosedFolder>
+                        </a>
+                        <a href={`https://maxmacia.github.io/${entrie.name}/`} target="_blank">
+							<ClosedFolder
+								key={index}
+								projects={thirdWindowType === `${entrie.name}` && entrie.ghPages === true && index !== 3}
+							>
+								<ClosedFolderImg
+									src={htmlFile}
+									alt={`page web ${entrie.title}`}
+								/>
+								<FigCap>{entrie.title} <br /> Page web</FigCap>
+							</ClosedFolder>
+						</a>
                     </ClosedFolderWrapper>
 				))}
 			</WindowContent>

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import closedFolder from '../../assets/folder-closed.png';
 import { categories } from '../data/categories';
 import Window from '../Window';
+import TxtWindow from '../TxtWindow';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
 
@@ -61,6 +62,21 @@ const ThirdWindowWrapper = styled.div<{ thirdWindowOpen: boolean }>`
     `}
 `;
 
+const TxtWindowWrapper = styled.div<{ txtWindowOpen: boolean }>`
+	display: none;
+	${(props) =>
+		props.txtWindowOpen &&
+		`
+        display: block;
+        position: absolute;
+        left: 300px;
+        top: 30px;
+        height: 100%;
+        width: 60%;
+        z-index: 4;
+    `}
+`;
+
 const Figure = styled.figure<{ isOnDesktop: boolean }>`
 	display: none;
 	${(props) =>
@@ -87,6 +103,7 @@ const Desktop = () => {
 	const [firstWindowOpen, setFirstWindowOpen] = useState<boolean>(false);
 	const [secondWindowOpen, setSecondWindowOpen] = useState<boolean>(false);
 	const [thirdWindowOpen, setThirdWindowOpen] = useState<boolean>(false);
+    const [txtWindowOpen, setTxtWindowOpen] = useState<boolean>(false);
 	const [firstWindowType, setFirstWindowType] = useState<string>('');
 	const [secondWindowType, setSecondWindowType] = useState<string>('');
 	const [thirdWindowType, setThirdWindowType] = useState<string>('');
@@ -127,6 +144,7 @@ const Desktop = () => {
 					setFirstWindowOpen={setFirstWindowOpen}
 					setSecondWindowOpen={setSecondWindowOpen}
 					setThirdWindowOpen={setThirdWindowOpen}
+                    setTxtWindowOpen={setTxtWindowOpen}
 				/>
 			</FirstWindowWrapper>
 			<SecondWindowWrapper secondWindowOpen={secondWindowOpen}>
@@ -141,6 +159,7 @@ const Desktop = () => {
 					setFirstWindowOpen={setFirstWindowOpen}
 					setSecondWindowOpen={setSecondWindowOpen}
 					setThirdWindowOpen={setThirdWindowOpen}
+                    setTxtWindowOpen={setTxtWindowOpen}
 				/>
 			</SecondWindowWrapper>
 			<ThirdWindowWrapper thirdWindowOpen={thirdWindowOpen}>
@@ -155,8 +174,12 @@ const Desktop = () => {
 					setFirstWindowOpen={setFirstWindowOpen}
 					setSecondWindowOpen={setSecondWindowOpen}
 					setThirdWindowOpen={setThirdWindowOpen}
+                    setTxtWindowOpen={setTxtWindowOpen}
 				/>
 			</ThirdWindowWrapper>
+            <TxtWindowWrapper txtWindowOpen={txtWindowOpen}>
+                <TxtWindow  firstWindowType={firstWindowType} setTxtWindowOpen={setTxtWindowOpen} />
+            </TxtWindowWrapper>
 			{categories.map((entrie, index) => (
 				<Figure key={index} onClick={openWindow} isOnDesktop={index < 4}>
 					<Img
