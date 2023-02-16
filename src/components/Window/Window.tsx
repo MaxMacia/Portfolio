@@ -166,13 +166,20 @@ const Window = ({
 				break;
 			case 2:
 				setPath(
-					`/Maxence-Macia/Desktop/${firstWindowType}/${secondWindowType}`
+					`/Maxence-Macia/Desktop/Projects/${secondWindowType}`
 				);
 				break;
 			case 3:
-				setPath(
-					`/Maxence-Macia/Desktop/${firstWindowType}/${secondWindowType}/${thirdWindowType}`
-				);
+				if (secondWindowType === 'OpenClassrooms') {
+                    setPath(
+                        `/Maxence-Macia/Desktop/Projects/OpenClassrooms/${thirdWindowType}`
+                    );
+                } else if (secondWindowType === 'Perso') {
+                    setPath(
+                        `/Maxence-Macia/Desktop/Projects/Perso/${thirdWindowType}`
+                    );
+                }
+                break;
 		}
 	}, [windowLevel, firstWindowType, secondWindowType, thirdWindowType]);
 
@@ -283,7 +290,7 @@ const Window = ({
 					<FigCap>e-mail</FigCap>
 				</EmailFile>
 				<ClosedFolder
-					projects={firstWindowType === 'Projects' && secondWindowType === ''}
+					projects={firstWindowType === 'Projects' && secondWindowType === '' && thirdWindowType === ''}
 					onClick={openSecondWindow}
 				>
 					<ClosedFolderImg
@@ -294,7 +301,7 @@ const Window = ({
 					<FigCap className="OpenClassrooms">OpenClassrooms</FigCap>
 				</ClosedFolder>
 				<ClosedFolder
-					projects={firstWindowType === 'Projects' && secondWindowType === ''}
+					projects={firstWindowType === 'Projects' && secondWindowType === '' && thirdWindowType === ''}
 					onClick={openSecondWindow}
 				>
 					<ClosedFolderImg
