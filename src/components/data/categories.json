@@ -5,7 +5,7 @@
         "description": [
             "Bonjour, je m'appelle Maxence, je suis développeur web.",
             "Avant de devenir passionnée de développement web, je travaillais dans le domaine de la recherche en biologie. J'ai suivi une formation de développement web avec OpenClassrooms.",
-            "Au cours de cette formation j’ai créé une application front-end en React, et une API REST avec Node.JS.",
+            "Au cours de cette formation j’ai créé une application front-end en React, et une API REST avec Node.js.",
             "J'ai également travaillé sur un site de e-commerce en JavaScript vanilla, en gérant et manipulant le local storage et le panier d'achat.",
             "Tous les sites sur lesquels j'ai travaillé sont responsives et s'adaptent aussi bien sur les smartphones que sur tablettes ou ordinateurs.",
             "Les technologies de développement web m'intéressent particulièrement, ainsi je continue d'apprendre et de me former.",
@@ -32,32 +32,41 @@
             {
                 "name": "Booki",
                 "title":"Booki",
-                "ghPages": true
+                "ghPages": true,
+                "description": [
+                    "Booki, site de réservation et d’hébergement, est le premier projet OpenClassrooms.",
+                    "L’objectif était d’apprendre à intégrer une maquette avec HTML et CSS et de réaliser une interface responsive."
+                ]
             },
             {
                 "name": "Ohmyfood",
                 "title": "Ohmyfood",
-                "ghPages": true
+                "ghPages": true,
+                "description": [""]
             },
             {
                 "name": "La-Panthere",
                 "title": "La Panthère",
-                "ghPages": true
+                "ghPages": true,
+                "description": [""]
             },
             {
                 "name": "Kanap",
                 "title": "Kanap",
-                "ghPages": false
+                "ghPages": false,
+                "description": [""]
             },
             {
                 "name": "HotTakes",
                 "title": "HotTakes",
-                "ghPages": false
+                "ghPages": false,
+                "description": [""]
             },
             {
                 "name": "Kasa",
                 "title": "Kasa",
-                "ghPages": true
+                "ghPages": true,
+                "description": [""]
             }
         ]
     },
@@ -68,22 +77,26 @@
             {
                 "name": "Portfolio",
                 "title": "Portfolio",
-                "ghPages": true
+                "ghPages": true,
+                "description": [""]
             },
             {
                 "name": "Rezo",
                 "title": "Rezo",
-                "ghPages": false
+                "ghPages": false,
+                "description": [""]
             },
             {
                 "name": "Calculator",
                 "title": "Calculator",
-                "ghPages": true
+                "ghPages": true,
+                "description": [""]
             },
             {
                 "name": "Animations-CSS",
                 "title": "Animations CSS",
-                "ghPages": true
+                "ghPages": true,
+                "description": [""]
             }
         ]
     }

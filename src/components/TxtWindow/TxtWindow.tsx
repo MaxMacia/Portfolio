@@ -1,4 +1,6 @@
 import picture from '../../assets/pp.jpg';
+import bookiDesktop from '../../assets/booki-desktop.png';
+import bookiMobile from '../../assets/booki-mobile.png';
 import { categories } from '../data/categories';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
@@ -34,7 +36,11 @@ const WindowContent = styled.div`
     align-items: center;
 `;
 
-const ImgContainer = styled.div``;
+const ImgContainer = styled.div`
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+`;
 
 const Picture = styled.img<{ aboutMe: boolean }>`
     display: none;
@@ -42,6 +48,17 @@ const Picture = styled.img<{ aboutMe: boolean }>`
         display: block;
         height: 100px;
         border-radius: 100px;
+        margin-top: 20px;
+    `}
+`;
+
+const Img = styled.img<{ cat: boolean }>`
+    display: none;
+    border: 1px solid ${colors.black};
+    ${props => props.cat && `
+        display: block;
+        border: 1px solid ${colors.black};
+        height: 100px;
         margin-top: 20px;
     `}
 `;
@@ -54,9 +71,9 @@ const TextContainer = styled.div`
     overflow: scroll;
 `;
 
-const ParaAboutMe = styled.p<{ aboutMe: boolean }>`
+const Para = styled.p<{ cat: boolean }>`
     display: none;
-    ${props => props.aboutMe && `
+    ${props => props.cat && `
         display: inline-block;
         margin: 11px 0px 11px 0px;
     `}
@@ -64,10 +81,11 @@ const ParaAboutMe = styled.p<{ aboutMe: boolean }>`
 
 type Props = {
 	firstWindowType: string,
+    thirdWindowType: string,
     setTxtWindowOpen: Function
 };
 
-const TxtWindow = ({ firstWindowType, setTxtWindowOpen }: Props) => {
+const TxtWindow = ({ firstWindowType,thirdWindowType , setTxtWindowOpen }: Props) => {
 	const closeWindow = () => {
 		setTxtWindowOpen(false);
 	};
@@ -83,11 +101,18 @@ const TxtWindow = ({ firstWindowType, setTxtWindowOpen }: Props) => {
 			<WindowContent>
 				<ImgContainer>
 					<Picture src={picture} alt="Maxence Macia" aboutMe={firstWindowType === 'About-me'} />
+                    <Img src={bookiDesktop} alt="screenshot booki version desktop" cat={thirdWindowType === 'Booki'} />
+                    <Img src={bookiMobile} alt="screenshot booki version mobile" cat={thirdWindowType === 'Booki'} />
 				</ImgContainer>
 				<TextContainer>
-                    {categories[0].description?.map((entries, index) =>(
-                        <ParaAboutMe key={index} aboutMe={firstWindowType === 'About-me'}>{entries}</ParaAboutMe>
+                    {categories[0].description?.map((entrie, index) =>(
+                        <Para key={index} cat={firstWindowType === 'About-me'}>{entrie}</Para>
                     ))}
+                    { Array.isArray(categories[4].subDirectories?.[0].description) ? (
+                        categories[4].subDirectories?.[0].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'Booki'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
                 </TextContainer>
 			</WindowContent>
 		</Container>

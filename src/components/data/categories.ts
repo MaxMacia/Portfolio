@@ -3,7 +3,7 @@ import jsonCategories from './categories.json';
 type Category = {
     name: string,
     title: string,
-    subDirectories?: { [key: string]: string | boolean }[],
+    subDirectories?: { [key: string]: string[] | string | boolean }[],
     description?: string[]
 };
 

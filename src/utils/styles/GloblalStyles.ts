@@ -8,8 +8,10 @@ const GlobalStyle = createGlobalStyle`
         height: 100%;
     }
     a {
+        display: block;
         color: ${colors.black};
         text-decoration: none;
+        height: fit-content;
     }
 `;
 

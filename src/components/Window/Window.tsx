@@ -281,7 +281,7 @@ const Window = ({
 					<TxtFileImg src={txtFile} alt="Fichier txt" />
 					<FigCap> Read me</FigCap>
 				</TxtFile>
-				<a href={firstWindowType === 'CV' ? cvMM : "https://www.linkedin.com/in/maxence-macia-4ab2a617b/"} target="_blank">
+				<a href={firstWindowType === 'CV' ? cvMM : "https://www.linkedin.com/in/maxence-macia-4ab2a617b/"} target="_blank" rel="noreferrer" >
                     <HtmlFile
                         cv={firstWindowType === 'CV'}
                         contact={firstWindowType === 'Contact'}
@@ -290,7 +290,7 @@ const Window = ({
                         <FigCap>{firstWindowType === 'CV' ? 'CV' : 'LinkedIn'}</FigCap>
                     </HtmlFile>
                 </a>
-				<a href='https://github.com/MaxMacia' target="_blank">
+				<a href='https://github.com/MaxMacia' target="_blank" rel="noreferrer" >
                     <HtmlFile cv={false} contact={firstWindowType === 'Contact'}>
                         <HtmlFileImg src={ghFile} alt="Fichier html" />
                         <FigCap>github</FigCap>
@@ -327,7 +327,7 @@ const Window = ({
 				{categories[4].subDirectories?.map((entrie, index) => (
 					<ClosedFolderWrapper>
                         <ClosedFolder
-                            key={index}
+                            key={`OpenClassrooms-dossier-${index}`}
                             projects={
                                 secondWindowType === 'OpenClassrooms' && thirdWindowType === ''
                             }
@@ -345,7 +345,7 @@ const Window = ({
                             </FigCap>
                         </ClosedFolder>
                         <ClosedFolder
-                            key={index}
+                            key={`OpenClassrooms-readme-${index}`}
                             projects={thirdWindowType === `${entrie.name}`}
                             onClick={openTxtWindow}
                         >
@@ -355,9 +355,9 @@ const Window = ({
                             />
                             <FigCap>{entrie.title} <br /> Read me</FigCap>
                         </ClosedFolder>
-                        <a href={`https://github.com/MaxMacia/Projet_OpenClassrooms_${entrie.name}.git`} target="_blank">
+                        <a href={`https://github.com/MaxMacia/Projet_OpenClassrooms_${entrie.name}.git`} target="_blank" rel="noreferrer" >
                             <ClosedFolder
-                                key={index}
+                                key={`OpenClassrooms-repo-${index}`}
                                 projects={thirdWindowType === `${entrie.name}`}
                             >
                                 <ClosedFolderImg
@@ -367,9 +367,9 @@ const Window = ({
                                 <FigCap>Repo <br /> gitHub</FigCap>
                             </ClosedFolder>
                         </a>
-                        <a href={`https://maxmacia.github.io/Projet_OpenClassrooms_${entrie.name}/`} target="_blank">
+                        <a href={`https://maxmacia.github.io/Projet_OpenClassrooms_${entrie.name}/`} target="_blank" rel="noreferrer" >
                             <ClosedFolder
-                                key={index}
+                                key={`OpenClassrooms-web-${index}`}
                                 projects={thirdWindowType === `${entrie.name}` && entrie.ghPages === true}
                             >
                                 <ClosedFolderImg
@@ -384,7 +384,7 @@ const Window = ({
 				{categories[5].subDirectories?.map((entrie, index) => (
 					<ClosedFolderWrapper>
                         <ClosedFolder
-                            key={index}
+                            key={`perso-dossier-${index}`}
                             projects={secondWindowType === 'Perso' && thirdWindowType === ''}
                             onClick={openThirdWindow}
                         >
@@ -400,7 +400,7 @@ const Window = ({
                             </FigCap>
                         </ClosedFolder>
                         <ClosedFolder
-                            key={index}
+                            key={`perso-readme-${index}`}
                             projects={thirdWindowType === `${entrie.name}` && index !== 3}
                             onClick={openTxtWindow}
                         >
@@ -410,9 +410,9 @@ const Window = ({
                             />
                             <FigCap>{entrie.title} <br /> Read me</FigCap>
                         </ClosedFolder>
-                        <a href={`https://github.com/MaxMacia/${entrie.name}.git`} target="_blank">
+                        <a href={`https://github.com/MaxMacia/${entrie.name}.git`} target="_blank" rel="noreferrer" >
                             <ClosedFolder
-                                key={index}
+                                key={`perso-repo-${index}`}
                                 projects={thirdWindowType === `${entrie.name}` && index !== 3}
                             >
                                 <ClosedFolderImg
@@ -422,9 +422,9 @@ const Window = ({
                                 <FigCap>Repo <br /> gitHub</FigCap>
                             </ClosedFolder>
                         </a>
-                        <a href={`https://maxmacia.github.io/${entrie.name}/`} target="_blank">
+                        <a href={`https://maxmacia.github.io/${entrie.name}/`} target="_blank" rel="noreferrer" >
 							<ClosedFolder
-								key={index}
+								key={`perso-web-${index}`}
 								projects={thirdWindowType === `${entrie.name}` && entrie.ghPages === true && index !== 3}
 							>
 								<ClosedFolderImg

@@ -178,7 +178,11 @@ const Desktop = () => {
 				/>
 			</ThirdWindowWrapper>
             <TxtWindowWrapper txtWindowOpen={txtWindowOpen}>
-                <TxtWindow  firstWindowType={firstWindowType} setTxtWindowOpen={setTxtWindowOpen} />
+                <TxtWindow
+                    firstWindowType={firstWindowType}
+                    thirdWindowType={thirdWindowType}
+                    setTxtWindowOpen={setTxtWindowOpen}
+                />
             </TxtWindowWrapper>
 			{categories.map((entrie, index) => (
 				<Figure key={index} onClick={openWindow} isOnDesktop={index < 4}>
