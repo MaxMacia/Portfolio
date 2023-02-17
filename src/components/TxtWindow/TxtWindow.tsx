@@ -1,8 +1,12 @@
-import Popup from 'reactjs-popup';
 import ControlledPopup from '../ControlledPopup';
 import picture from '../../assets/pp.jpg';
 import bookiDesktop from '../../assets/booki-desktop.png';
 import bookiMobile from '../../assets/booki-mobile.png';
+import ohmyfoodMenus from '../../assets/ohmyfood-menus.png';
+import ohmyfoodRestaurants from '../../assets/ohmyfood-restaurants.png';
+import laPanthere from '../../assets/lapanthere.png';
+import kanapNosProduits from '../../assets/Kanap-nosproduits.png';
+import kanapPanier from '../../assets/Kanap-panier.png';
 import { categories } from '../data/categories';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
@@ -40,7 +44,7 @@ const WindowContent = styled.div`
 
 const ImgContainer = styled.div`
     display: flex;
-    width: 40%;
+    width: 50%;
     justify-content: space-between;
 `;
 
@@ -105,6 +109,21 @@ const TxtWindow = ({ firstWindowType,thirdWindowType , setTxtWindowOpen }: Props
                     <PopupWrapper cat={thirdWindowType === 'Booki'}>
                         <ControlledPopup picture={bookiMobile} alt={"screenshot booki version mobile"} />
                     </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Ohmyfood'}>
+                        <ControlledPopup picture={ohmyfoodMenus} alt={"screenshot Ohmyfood page menus"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Ohmyfood'}>
+                        <ControlledPopup picture={ohmyfoodRestaurants} alt={"screenshot Ohmyfood page restaurants"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'La-Panthere'}>
+                        <ControlledPopup picture={laPanthere} alt={"screenshot La Panthère page d'accueil"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Kanap'}>
+                        <ControlledPopup picture={kanapNosProduits} alt={"screenshot Kanap page d'accueil"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Kanap'}>
+                        <ControlledPopup picture={kanapPanier} alt={"screenshot Kanap page panier"} />
+                    </PopupWrapper>
 				</ImgContainer>
 				<TextContainer>
                     {categories[0].description?.map((entrie, index) =>(
@@ -113,6 +132,16 @@ const TxtWindow = ({ firstWindowType,thirdWindowType , setTxtWindowOpen }: Props
                     { Array.isArray(categories[4].subDirectories?.[0].description) ? (
                         categories[4].subDirectories?.[0].description?.map((entrie, index) => (
                             <Para key={index} cat={thirdWindowType === 'Booki'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
+                    { Array.isArray(categories[4].subDirectories?.[1].description) ? (
+                        categories[4].subDirectories?.[1].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'Ohmyfood'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
+                    { Array.isArray(categories[4].subDirectories?.[2].description) ? (
+                        categories[4].subDirectories?.[2].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'La-Panthere'}>{entrie}</Para>
                         ))
                     ) : (null)}
                 </TextContainer>

@@ -42,13 +42,19 @@
                 "name": "Ohmyfood",
                 "title": "Ohmyfood",
                 "ghPages": true,
-                "description": [""]
+                "description": [
+                    "Ohmyfood, site 100% mobile qui répertorie les menus de restaurants gastronomiques, est le second projet OpenClassrooms.",
+                    "L’objectif était d’apprendre à mettre en place des animations CSS modernes avec Sass, utiliser les keyframes et la propriété transform, et mettre en place un loading spinner."
+                ]
             },
             {
                 "name": "La-Panthere",
                 "title": "La Panthère",
                 "ghPages": true,
-                "description": [""]
+                "description": [
+                    "La Panthère, agence de web design, est le troisième projet OpenClassrooms.",
+                    "L’objectif était d’apprendre à optimiser la SEO et l’accessibilité sur un site web existant. Optimisation des performances et du référencement. Acquisition des bonnes pratiques du développement web."
+                ]
             },
             {
                 "name": "Kanap",

@@ -10,14 +10,15 @@ const ImgMin = styled.img`
     cursor: pointer;
 `;
 
-const Img = styled.img`
-    height: 500px;
-`;
-
 const StyledPopup = styled(Popup)`
     &-overlay {
         background: rgba(0, 0, 0, 0.5);
     }
+`;
+
+const Img = styled.img`
+    height: 500px;
+    border: 1px solid ${colors.black};
 `;
 
 type Props = {
