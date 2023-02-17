@@ -1,3 +1,5 @@
+import Popup from 'reactjs-popup';
+import ControlledPopup from '../ControlledPopup';
 import picture from '../../assets/pp.jpg';
 import bookiDesktop from '../../assets/booki-desktop.png';
 import bookiMobile from '../../assets/booki-mobile.png';
@@ -52,14 +54,10 @@ const Picture = styled.img<{ aboutMe: boolean }>`
     `}
 `;
 
-const Img = styled.img<{ cat: boolean }>`
+const PopupWrapper = styled.div<{ cat: boolean }>`
     display: none;
-    border: 1px solid ${colors.black};
     ${props => props.cat && `
         display: block;
-        border: 1px solid ${colors.black};
-        height: 100px;
-        margin-top: 20px;
     `}
 `;
 
@@ -101,8 +99,12 @@ const TxtWindow = ({ firstWindowType,thirdWindowType , setTxtWindowOpen }: Props
 			<WindowContent>
 				<ImgContainer>
 					<Picture src={picture} alt="Maxence Macia" aboutMe={firstWindowType === 'About-me'} />
-                    <Img src={bookiDesktop} alt="screenshot booki version desktop" cat={thirdWindowType === 'Booki'} />
-                    <Img src={bookiMobile} alt="screenshot booki version mobile" cat={thirdWindowType === 'Booki'} />
+                    <PopupWrapper cat={thirdWindowType === 'Booki'}>
+                        <ControlledPopup picture={bookiDesktop} alt={"screenshot booki version desktop"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Booki'}>
+                        <ControlledPopup picture={bookiMobile} alt={"screenshot booki version mobile"} />
+                    </PopupWrapper>
 				</ImgContainer>
 				<TextContainer>
                     {categories[0].description?.map((entrie, index) =>(
