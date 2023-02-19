@@ -24,10 +24,10 @@ const FirstWindowWrapper = styled.div<{ firstWindowOpen: boolean }>`
 		`
         display: block;
         position: absolute;
-        left: 100px;
+        left: 8%;
         top: 20px;
-        height: 100%;
-        width: 100%;
+        height: 597px;
+        width: 90%;
         z-index: 1;
     `}
 `;
@@ -39,10 +39,10 @@ const SecondWindowWrapper = styled.div<{ secondWindowOpen: boolean }>`
 		`
         display: block;
         position: absolute;
-        left: 130px;
+        left: 11%;
         top: 60px;
-        height: 100%;
-        width: 100%;
+        height: 597px;
+        width: 90%;
         z-index: 2;
     `}
 `;
@@ -54,10 +54,10 @@ const ThirdWindowWrapper = styled.div<{ thirdWindowOpen: boolean }>`
 		`
         display: block;
         position: absolute;
-        left: 90px;
+        left: 7%;
         top: 90px;
-        height: 100%;
-        width: 100%;
+        height: 597px;
+        width: 90%;
         z-index: 3;
     `}
 `;
@@ -69,9 +69,9 @@ const TxtWindowWrapper = styled.div<{ txtWindowOpen: boolean }>`
 		`
         display: block;
         position: absolute;
-        left: 300px;
+        left: 25%;
         top: 30px;
-        height: 100%;
+        height: 599px;
         width: 60%;
         z-index: 4;
     `}
@@ -94,7 +94,7 @@ const Img = styled.img`
 `;
 
 const FigCap = styled.figcaption`
-	padding-left: 20px;
+	padding-left: 14%;
 	color: ${colors.white};
 	font-weight: bold;
 `;

@@ -23,20 +23,20 @@ import { colors } from '../../utils/styles/colors';
 const Container = styled.div`
 	border: 1px solid ${colors.black};
 	width: 90%;
-	height: 60%;
+	height: 599px;
 `;
 
 const TopBar = styled.div`
 	border: 1px solid ${colors.black};
 	background-color: ${colors.secondary};
-	height: 4%;
+	height: 24px;
 	display: flex;
 	justify-content: flex-start;
 `;
 
 const CloseButton = styled.i`
 	color: ${colors.white};
-	padding-left: 10px;
+	padding-left: 1%;
 	padding-top: 4px;
 	cursor: pointer;
 `;
@@ -44,7 +44,7 @@ const CloseButton = styled.i`
 const WindowContent = styled.div`
 	border: 1px solid ${colors.black};
 	background-color: ${colors.white};
-	height: 95.9%;
+	height: 571px;
 	display: flex;
     flex-direction: column;
     justify-content: space-between;

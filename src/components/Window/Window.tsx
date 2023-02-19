@@ -12,20 +12,20 @@ import { useEffect, useState } from 'react';
 const Container = styled.div`
 	border: 1px solid ${colors.black};
 	width: 90%;
-	height: 60%;
+	height: 597px;
 `;
 
 const TopBar = styled.div`
 	border: 1px solid ${colors.black};
 	background-color: ${colors.primary};
-	height: 4%;
+	height: 24px;
 	display: flex;
 	justify-content: flex-start;
 `;
 
 const CloseButton = styled.i`
 	color: ${colors.white};
-	padding-left: 10px;
+	padding-left: 1%;
 	padding-top: 4px;
 	cursor: pointer;
 `;
@@ -33,28 +33,29 @@ const CloseButton = styled.i`
 const TitleBar = styled.div`
 	border: 1px solid ${colors.black};
 	background-color: ${colors.grey};
-	height: 5%;
+	height: 30px;
 `;
 
 const Path = styled.div`
 	border: 1px solid ${colors.black};
 	background-color: ${colors.white};
-	height: 60%;
+	height: 18px;
 	width: 50%;
 	margin-top: 5px;
-	margin-left: 100px;
+	margin-left: 10%;
 `;
 
 const Paragraphe = styled.div`
 	margin: 0;
-	padding-left: 5px;
+	padding-left: 1%;
 `;
 
 const WindowContent = styled.div`
 	border: 1px solid ${colors.black};
 	background-color: ${colors.white};
-	height: 95.9%;
+	height: 537px;
 	display: flex;
+	flex-wrap: wrap;
 `;
 
 const TxtFile = styled.figure<{ aboutMe: boolean }>`
@@ -64,6 +65,7 @@ const TxtFile = styled.figure<{ aboutMe: boolean }>`
 		`
         display: block;
         cursor: pointer;
+		height: fit-content;
     `}
 `;
 

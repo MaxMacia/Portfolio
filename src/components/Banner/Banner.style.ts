@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const HeadingContainer = styled.div`
     display: flex;
     align-items: center;
-    padding-left: 10px;
+    padding-left: 0.8%;
 `;
 
 export const Img = styled.img`
@@ -22,7 +22,8 @@ export const Img = styled.img`
 
 export const Heading = styled.h1`
 	font-size: 1em;
-	padding-left: 5px;
+	padding-left: 1.7%;
+	width: 270px;
 `;
 
 export const IconsContainer = styled.div`
@@ -40,13 +41,14 @@ export const BatteryContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	width: 63%;
 `;
 
 export const Percentage = styled.p`
-	padding-right: 5px;
+	padding-right: 6.7%;
 `;
 
 export const IconBattery = styled.i`
-	padding-right: 10px;
+	margin-right: 14%;
 	font-size: 1.5em;
 `;
