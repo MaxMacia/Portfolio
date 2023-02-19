@@ -11,6 +11,11 @@ import hotTakesPageSauces from '../../assets/HotTakes-pagesauces.png';
 import hotTakesLogin from '../../assets/HotTakes-login.png';
 import kasaPageDaccueil from '../../assets/Kasa-pagedaccueil.png';
 import kasaPageAppartement from '../../assets/Kasa-pageappartement.png';
+import portfolioPageDaccueil from '../../assets/portfolio-pagedaccueil.png';
+import portfolioAboutMe from '../../assets/portfolio-aboutme.png';
+import rezoLogin from '../../assets/Rezo-login.png';
+import rezoTl from '../../assets/Rezo-TL.png';
+import calculator from '../../assets/Calculator.png';
 import { categories } from '../data/categories';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
@@ -140,6 +145,21 @@ const TxtWindow = ({ firstWindowType,thirdWindowType , setTxtWindowOpen }: Props
                     <PopupWrapper cat={thirdWindowType === 'Kasa'}>
                         <ControlledPopup picture={kasaPageAppartement} alt={"screenshot Kasa page appartement"} />
                     </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Portfolio'}>
+                        <ControlledPopup picture={portfolioPageDaccueil} alt={"screenshot Portfoilo page d'accueil"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Portfolio'}>
+                        <ControlledPopup picture={portfolioAboutMe} alt={"screenshot Portfoilo fenêtre about me"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Rezo'}>
+                        <ControlledPopup picture={rezoLogin} alt={"screenshot Rezo page login/signup"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Rezo'}>
+                        <ControlledPopup picture={rezoTl} alt={"screenshot Rezo page principale utilisateur"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Calculator'}>
+                        <ControlledPopup picture={calculator} alt={"screenshot Calculator"} />
+                    </PopupWrapper>
 				</ImgContainer>
 				<TextContainer>
                     {categories[0].description?.map((entrie, index) =>(
@@ -173,6 +193,21 @@ const TxtWindow = ({ firstWindowType,thirdWindowType , setTxtWindowOpen }: Props
                     { Array.isArray(categories[4].subDirectories?.[5].description) ? (
                         categories[4].subDirectories?.[5].description?.map((entrie, index) => (
                             <Para key={index} cat={thirdWindowType === 'Kasa'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
+                    { Array.isArray(categories[5].subDirectories?.[0].description) ? (
+                        categories[5].subDirectories?.[0].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'Portfolio'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
+                    { Array.isArray(categories[5].subDirectories?.[1].description) ? (
+                        categories[5].subDirectories?.[1].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'Rezo'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
+                    { Array.isArray(categories[5].subDirectories?.[2].description) ? (
+                        categories[5].subDirectories?.[2].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'Calculator'}>{entrie}</Para>
                         ))
                     ) : (null)}
                 </TextContainer>

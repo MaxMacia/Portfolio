@@ -96,19 +96,31 @@
                 "name": "Portfolio",
                 "title": "Portfolio",
                 "ghPages": true,
-                "description": [""]
+                "description": [
+                    "Mon Porfolio!",
+                    "L’idée est de simuler le bureau d’un ordinateur avec une interface graphique de type Windows/Mac.",
+                    "Ceci est une single page application mise en place avec React. Mise en place des styles avec la librairie styled-components. Utilisation de la librairie reactjs-popup pour les apperçus d’images. Utilisation de TypeScript. Mise en place de tests unitaires via React testing-librairy."
+                ]
             },
             {
                 "name": "Rezo",
                 "title": "Rezo",
                 "ghPages": false,
-                "description": [""]
+                "description": [
+                    "Mon projet Rezo.",
+                    "L’idée est de créer un réseau social de type Twitter, aussi bien du coté back, que du coté front.",
+                    "Le projet est en cours, et a été débuté en JavaScript vanilla, avec utilisation de Sass pour les styles. Cependant J’ai pour projet de refaire Rezo avec React.",
+                    "Mise en place d’un système authentification. Utilisation de MongoDB comme base de données. Affichage dynamique des données relatives à l’utilisateur lorsqu’il se connecte. Possibilité de poster des messages qui s’affichent en suite sur la page principale."
+                ]
             },
             {
                 "name": "Calculator",
                 "title": "Calculator",
                 "ghPages": true,
-                "description": [""]
+                "description": [
+                    "Mon projet Calculator.",
+                    "Il s’agit d’une calculatrice réalisée en JavaScript vanilla, avec utilisation de Sass pour les styles."
+                ]
             },
             {
                 "name": "Animations-CSS",
