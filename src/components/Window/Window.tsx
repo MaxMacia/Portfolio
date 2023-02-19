@@ -114,6 +114,7 @@ const EmailFileImg = styled.img`
 
 const ClosedFolderWrapper = styled.div`
     display: flex;
+	flex-wrap: wrap;
 `;
 
 const ClosedFolder = styled.figure<{ projects: boolean }>`
@@ -436,6 +437,47 @@ const Window = ({
 						</a>
                     </ClosedFolderWrapper>
 				))}
+				<ClosedFolder
+                    key={'animations-readme'}
+                    projects={thirdWindowType === 'Animations-CSS'}
+                    onClick={openTxtWindow}
+                >
+                    <ClosedFolderImg
+                    	src={txtFile}
+                        alt={'Read me animations CSS'}
+                    />
+                    <FigCap>Read me</FigCap>
+                </ClosedFolder>
+				{Array.isArray(categories[5].subDirectories?.[3].directories) ? (
+					categories[5].subDirectories?.[3].directories.map((entrie, index) => (
+						<ClosedFolderWrapper>
+                        <a href={`https://github.com/MaxMacia/${entrie}.git`} target="_blank" rel="noreferrer" >
+                            <ClosedFolder
+                                key={`animations-${index}`}
+                                projects={thirdWindowType === 'Animations-CSS'}
+                            >
+                                <ClosedFolderImg
+                                    src={ghFile}
+                                    alt={`Repo gitHub ${entrie}`}
+                                />
+                                <FigCap>Repo <br /> gitHub <br /> {entrie.split('_')[2]}</FigCap>
+                            </ClosedFolder>
+                        </a>
+                        <a href={`https://maxmacia.github.io/${entrie}/`} target="_blank" rel="noreferrer" >
+							<ClosedFolder
+								key={`perso-web-${index}`}
+								projects={thirdWindowType === 'Animations-CSS'}
+							>
+								<ClosedFolderImg
+									src={htmlFile}
+									alt={`page web ${entrie}`}
+								/>
+								<FigCap>Page web <br /> {entrie.split('_')[2]}</FigCap>
+							</ClosedFolder>
+						</a>
+						</ClosedFolderWrapper>
+					))
+				) : (null) }
 			</WindowContent>
 		</Container>
 	);

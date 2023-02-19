@@ -210,6 +210,11 @@ const TxtWindow = ({ firstWindowType,thirdWindowType , setTxtWindowOpen }: Props
                             <Para key={index} cat={thirdWindowType === 'Calculator'}>{entrie}</Para>
                         ))
                     ) : (null)}
+                    { Array.isArray(categories[5].subDirectories?.[3].description) ? (
+                        categories[5].subDirectories?.[3].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'Animations-CSS'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
                 </TextContainer>
 			</WindowContent>
 		</Container>

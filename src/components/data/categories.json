@@ -4,13 +4,13 @@
         "title": "About me",
         "description": [
             "Bonjour, je m'appelle Maxence, je suis développeur web.",
-            "Avant de devenir passionnée de développement web, je travaillais dans le domaine de la recherche en biologie. J'ai suivi une formation de développement web avec OpenClassrooms.",
+            "Avant de devenir passionné de développement web, je travaillais dans le domaine de la recherche en biologie. J'ai suivi une formation de développement web avec OpenClassrooms.",
             "Au cours de cette formation j’ai créé une application front-end en React, et une API REST avec Node.js.",
             "J'ai également travaillé sur un site de e-commerce en JavaScript vanilla, en gérant et manipulant le local storage et le panier d'achat.",
             "Tous les sites sur lesquels j'ai travaillé sont responsives et s'adaptent aussi bien sur les smartphones que sur tablettes ou ordinateurs.",
             "Les technologies de développement web m'intéressent particulièrement, ainsi je continue d'apprendre et de me former.",
             "Je suis actuellement à la recherche d'un emploi dans le développement web en tant que Junior afin d'approfondir mes compétences mais aussi de partager mes connaissances.",
-            "Au fil des mes expériences professionnelles, j'ai apprécié travailler en équipe, même si je suis autonome dans mon travail. Je suis désormais prête à relever de nouveaux challenges."
+            "Au fil des mes expériences professionnelles, j'ai apprécié travailler en équipe, même si je suis autonome dans mon travail. Je suis désormais prêt à relever de nouveaux challenges."
         ]
     },
     {
@@ -36,7 +36,8 @@
                 "description": [
                     "Booki, site de réservation et d’hébergement, est le premier projet OpenClassrooms.",
                     "L’objectif était d’apprendre à intégrer une maquette avec HTML et CSS et de réaliser une interface responsive."
-                ]
+                ],
+                "directories": [""]
             },
             {
                 "name": "Ohmyfood",
@@ -45,7 +46,8 @@
                 "description": [
                     "Ohmyfood, site 100% mobile qui répertorie les menus de restaurants gastronomiques, est le second projet OpenClassrooms.",
                     "L’objectif était d’apprendre à mettre en place des animations CSS modernes avec Sass, utiliser les keyframes et la propriété transform, et mettre en place un loading spinner."
-                ]
+                ],
+                "directories": [""]
             },
             {
                 "name": "La-Panthere",
@@ -54,7 +56,8 @@
                 "description": [
                     "La Panthère, agence de web design, est le troisième projet OpenClassrooms.",
                     "L’objectif était d’apprendre à optimiser la SEO et l’accessibilité sur un site web existant. Optimisation des performances et du référencement. Acquisition des bonnes pratiques du développement web."
-                ]
+                ],
+                "directories": [""]
             },
             {
                 "name": "Kanap",
@@ -64,7 +67,8 @@
                     "Kanap, site de e-commerce, est le quatrième projet OpenClassrooms.",
                     "L’objectif était d’apprendre à mettre en place des fonctionnalités via JavaScript vanilla.",
                     "Interaction avec le DOM pour afficher du contenu dynamiquement à partir de donnés issues d’un back-end. Utilisation du local storage pour créer un panier d’achat. Contrôle des champs de formulaire. Et rédaction d’un plan de tests respectant les spécifications techniques."
-                ]
+                ],
+                "directories": [""]
             },
             {
                 "name": "HotTakes",
@@ -74,7 +78,8 @@
                     "HotTakes, application web critique de sauces piquantes, est le cinquième projet OpenClassrooms.",
                     "L’objectif était de créer une API REST avec Node.js et le framework express.",
                     "Utilisation de la base de donnée noSQL MongoDB. Mise en place des différente routes CRUD (create – read – update- delete). Mise en place d’une gestion de l’upload des fichiers (via la librairie multer). Mise en place d’un système d’authentification pour les utilisateurs. Gestion de la sécurité (via les librairies bcrypt, heltmet, password-validator, jsonwebtoken)."
-                ]
+                ],
+                "directories": [""]
             },
             {
                 "name": "Kasa",
@@ -84,7 +89,8 @@
                     "Kasa, plateforme de location d’appartement, est le sixième projet OpenClassrooms.",
                     "L’objectif était de créer une application front-end avec React.",
                     "Utilisation de React-router-DOM pour le routing. Création de composants réutilisables. Utilisation de la librairie styled-components pour mettre en place les styles CSS. Utilisation de TypeScript. Utilisation de React testing-librairy pour la réalisation de tests unitaires."
-                ]
+                ],
+                "directories": [""]
             }
         ]
     },
@@ -100,7 +106,8 @@
                     "Mon Porfolio!",
                     "L’idée est de simuler le bureau d’un ordinateur avec une interface graphique de type Windows/Mac.",
                     "Ceci est une single page application mise en place avec React. Mise en place des styles avec la librairie styled-components. Utilisation de la librairie reactjs-popup pour les apperçus d’images. Utilisation de TypeScript. Mise en place de tests unitaires via React testing-librairy."
-                ]
+                ],
+                "directories": [""]
             },
             {
                 "name": "Rezo",
@@ -111,7 +118,8 @@
                     "L’idée est de créer un réseau social de type Twitter, aussi bien du coté back, que du coté front.",
                     "Le projet est en cours, et a été débuté en JavaScript vanilla, avec utilisation de Sass pour les styles. Cependant J’ai pour projet de refaire Rezo avec React.",
                     "Mise en place d’un système authentification. Utilisation de MongoDB comme base de données. Affichage dynamique des données relatives à l’utilisateur lorsqu’il se connecte. Possibilité de poster des messages qui s’affichent en suite sur la page principale."
-                ]
+                ],
+                "directories": [""]
             },
             {
                 "name": "Calculator",
@@ -120,13 +128,24 @@
                 "description": [
                     "Mon projet Calculator.",
                     "Il s’agit d’une calculatrice réalisée en JavaScript vanilla, avec utilisation de Sass pour les styles."
-                ]
+                ],
+                "directories": [""]
             },
             {
                 "name": "Animations-CSS",
                 "title": "Animations CSS",
                 "ghPages": true,
-                "description": [""]
+                "description": [
+                    "Ici vous trouverez différentes animations CSS.",
+                    "Jauge représente une jauge avec une balle qui monte quand on survole le bouton “Bouton”.",
+                    "LoadingSpinner est le loader réalisé pour le projet Ohmyfood, second projet OpenClassrooms.",
+                    "HelloWorld représente le texte “Hello World!”, ainsi qu’un smiley, qui clignotent."
+                ],
+                "directories": [
+                    "Animation_CSS_Jauge",
+                    "Animation_CSS_LoadingSpinner",
+                    "Animation_CSS_HelloWorld"
+                ]
             }
         ]
     }
