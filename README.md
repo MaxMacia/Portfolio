@@ -1,3 +1,11 @@
+# Portfolio
+
+Mon Porfolio! 
+
+L’idée est de simuler le bureau d’un ordinateur avec une interface graphique de type Windows/Mac. 
+
+Ceci est une single page application mise en place avec React. Mise en place des styles avec la librairie styled-components. Utilisation de la librairie reactjs-popup pour les apperçus d’images. Utilisation de TypeScript. Mise en place de tests unitaires via React testing-librairy. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
