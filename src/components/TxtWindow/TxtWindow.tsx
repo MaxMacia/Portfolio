@@ -7,6 +7,10 @@ import ohmyfoodRestaurants from '../../assets/ohmyfood-restaurants.png';
 import laPanthere from '../../assets/lapanthere.png';
 import kanapNosProduits from '../../assets/Kanap-nosproduits.png';
 import kanapPanier from '../../assets/Kanap-panier.png';
+import hotTakesPageSauces from '../../assets/HotTakes-pagesauces.png';
+import hotTakesLogin from '../../assets/HotTakes-login.png';
+import kasaPageDaccueil from '../../assets/Kasa-pagedaccueil.png';
+import kasaPageAppartement from '../../assets/Kasa-pageappartement.png';
 import { categories } from '../data/categories';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
@@ -124,6 +128,18 @@ const TxtWindow = ({ firstWindowType,thirdWindowType , setTxtWindowOpen }: Props
                     <PopupWrapper cat={thirdWindowType === 'Kanap'}>
                         <ControlledPopup picture={kanapPanier} alt={"screenshot Kanap page panier"} />
                     </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'HotTakes'}>
+                        <ControlledPopup picture={hotTakesPageSauces} alt={"screenshot HotTakes page sauces"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'HotTakes'}>
+                        <ControlledPopup picture={hotTakesLogin} alt={"screenshot HotTakes page login/signup"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Kasa'}>
+                        <ControlledPopup picture={kasaPageDaccueil} alt={"screenshot Kasa page d'accueil"} />
+                    </PopupWrapper>
+                    <PopupWrapper cat={thirdWindowType === 'Kasa'}>
+                        <ControlledPopup picture={kasaPageAppartement} alt={"screenshot Kasa page appartement"} />
+                    </PopupWrapper>
 				</ImgContainer>
 				<TextContainer>
                     {categories[0].description?.map((entrie, index) =>(
@@ -142,6 +158,21 @@ const TxtWindow = ({ firstWindowType,thirdWindowType , setTxtWindowOpen }: Props
                     { Array.isArray(categories[4].subDirectories?.[2].description) ? (
                         categories[4].subDirectories?.[2].description?.map((entrie, index) => (
                             <Para key={index} cat={thirdWindowType === 'La-Panthere'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
+                    { Array.isArray(categories[4].subDirectories?.[3].description) ? (
+                        categories[4].subDirectories?.[3].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'Kanap'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
+                    { Array.isArray(categories[4].subDirectories?.[4].description) ? (
+                        categories[4].subDirectories?.[4].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'HotTakes'}>{entrie}</Para>
+                        ))
+                    ) : (null)}
+                    { Array.isArray(categories[4].subDirectories?.[5].description) ? (
+                        categories[4].subDirectories?.[5].description?.map((entrie, index) => (
+                            <Para key={index} cat={thirdWindowType === 'Kasa'}>{entrie}</Para>
                         ))
                     ) : (null)}
                 </TextContainer>

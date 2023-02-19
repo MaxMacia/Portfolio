@@ -60,19 +60,31 @@
                 "name": "Kanap",
                 "title": "Kanap",
                 "ghPages": false,
-                "description": [""]
+                "description": [
+                    "Kanap, site de e-commerce, est le quatrième projet OpenClassrooms.",
+                    "L’objectif était d’apprendre à mettre en place des fonctionnalités via JavaScript vanilla.",
+                    "Interaction avec le DOM pour afficher du contenu dynamiquement à partir de donnés issues d’un back-end. Utilisation du local storage pour créer un panier d’achat. Contrôle des champs de formulaire. Et rédaction d’un plan de tests respectant les spécifications techniques."
+                ]
             },
             {
                 "name": "HotTakes",
                 "title": "HotTakes",
                 "ghPages": false,
-                "description": [""]
+                "description": [
+                    "HotTakes, application web critique de sauces piquantes, est le cinquième projet OpenClassrooms.",
+                    "L’objectif était de créer une API REST avec Node.js et le framework express.",
+                    "Utilisation de la base de donnée noSQL MongoDB. Mise en place des différente routes CRUD (create – read – update- delete). Mise en place d’une gestion de l’upload des fichiers (via la librairie multer). Mise en place d’un système d’authentification pour les utilisateurs. Gestion de la sécurité (via les librairies bcrypt, heltmet, password-validator, jsonwebtoken)."
+                ]
             },
             {
                 "name": "Kasa",
                 "title": "Kasa",
                 "ghPages": true,
-                "description": [""]
+                "description": [
+                    "Kasa, plateforme de location d’appartement, est le sixième projet OpenClassrooms.",
+                    "L’objectif était de créer une application front-end avec React.",
+                    "Utilisation de React-router-DOM pour le routing. Création de composants réutilisables. Utilisation de la librairie styled-components pour mettre en place les styles CSS. Utilisation de TypeScript. Utilisation de React testing-librairy pour la réalisation de tests unitaires."
+                ]
             }
         ]
     },
