@@ -5,203 +5,26 @@ import ghFile from '../../assets/fichier-github.png';
 import emailFile from '../../assets/fichier-email.png';
 import closedFolder from '../../assets/folder-closed.png';
 import cvMM from '../../assets/CV_Maxence_Macia.pdf';
-import styled from 'styled-components';
-import { colors } from '../../utils/styles/colors';
 import { useEffect, useState } from 'react';
-import { devices } from '../../utils/styles/devices';
-
-const Container = styled.div`
-	border: 1px solid ${colors.black};
-	width: 90%;
-	height: 597px;
-	@media ${devices.mobile} {
-		height: 460px;
-	}
-	@media ${devices.mobileL} {
-		height: 460px;
-	}
-`;
-
-const TopBar = styled.div`
-	border: 1px solid ${colors.black};
-	background-color: ${colors.primary};
-	height: 24px;
-	display: flex;
-	justify-content: flex-start;
-`;
-
-const CloseButton = styled.i`
-	color: ${colors.white};
-	padding-left: 1%;
-	padding-top: 4px;
-	cursor: pointer;
-`;
-
-const TitleBar = styled.div`
-	border: 1px solid ${colors.black};
-	background-color: ${colors.grey};
-	height: 30px;
-`;
-
-const Path = styled.div`
-	border: 1px solid ${colors.black};
-	background-color: ${colors.white};
-	height: 18px;
-	width: 50%;
-	margin-top: 5px;
-	margin-left: 10%;
-	@media ${devices.mobile} {
-		width: 95%;
-		overflow-x: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		margin-left: 3%;
-		height: 18px;
-	}
-	@media ${devices.mobileL} {
-		width: 95%;
-		overflow-x: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		margin-left: 3%;
-		height: 18px;
-	}
-	@media ${devices.tablet} {
-		width: 95%;
-		overflow-x: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		margin-left: 3%;
-		height: 18px;
-	}
-`;
-
-const Paragraphe = styled.div`
-	margin: 0;
-	padding-left: 1%;
-	@media ${devices.mobile} {
-		font-size: 0.8em;
-		padding-top: 2px;
-		width: 100%;
-	}
-	@media ${devices.mobileL} {
-		font-size: 0.8em;
-		padding-top: 2px;
-		width: 100%;
-	}
-`;
-
-const WindowContent = styled.div`
-	border: 1px solid ${colors.black};
-	background-color: ${colors.white};
-	height: 537px;
-	display: flex;
-	flex-wrap: wrap;
-	@media ${devices.mobile} {
-		overflow: scroll;
-		height: 400px;
-	}
-	@media ${devices.mobileL} {
-		overflow: scroll;
-		height: 400px;
-	}
-	@media ${devices.tablet} {
-		overflow: scroll;
-	}
-`;
-
-const TxtFile = styled.figure<{ aboutMe: boolean }>`
-	display: none;
-	${(props) =>
-		props.aboutMe &&
-		`
-        display: block;
-        cursor: pointer;
-		height: fit-content;
-    `}
-`;
-
-const TxtFileImg = styled.img`
-	height: 100px;
-	margin-bottom: 10px;
-`;
-
-const FigCap = styled.figcaption`
-	font-weight: bold;
-`;
-
-const HtmlFile = styled.figure<{ cv: boolean; contact: boolean }>`
-	display: none;
-	${(props) =>
-		props.cv &&
-		`
-        display: block;
-        cursor: pointer;
-    `}
-	${(props) =>
-		props.contact &&
-		`
-        display: block;
-        cursor: pointer;
-    `}
-`;
-
-const HtmlFileImg = styled.img`
-	height: 100px;
-	margin-bottom: 10px;
-`;
-
-const EmailFile = styled.figure<{ contact: boolean }>`
-	display: none;
-	${(props) =>
-		props.contact &&
-		`
-        display: block;
-        cursor: pointer;
-    `}
-`;
-
-const EmailFileImg = styled.img`
-	height: 100px;
-	margin-bottom: 10px;
-`;
-
-const ClosedFolderWrapper = styled.div`
-    display: flex;
-	flex-wrap: wrap;
-	@media ${devices.mobile} {
-		width: 60%;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-	@media ${devices.mobileL} {
-		width: 60%;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-`;
-
-const ClosedFolder = styled.figure<{ projects: boolean }>`
-	display: none;
-	${(props) =>
-		props.projects &&
-		`
-        display: block;
-        height: fit-content;
-        cursor: pointer;
-    `}
-`;
-
-const ClosedFolderImg = styled.img`
-	height: 100px;
-	margin-bottom: 10px;
-	@media ${devices.mobile} {
-		height: 80px;
-	}
-	@media ${devices.mobileL} {
-		height: 80px;
-	}
-`;
+import {
+	Container,
+	TopBar,
+	CloseButton,
+	TitleBar,
+	Path,
+	Paragraphe,
+	WindowContent,
+	TxtFile,
+	TxtFileImg,
+	FigCap,
+	HtmlFile,
+	HtmlFileImg,
+	EmailFile,
+	EmailFileImg,
+	ClosedFolder,
+	ClosedFolderImg,
+	ClosedFolderWrapper,
+} from './Window.style';
 
 type Props = {
 	level: number;
@@ -214,7 +37,7 @@ type Props = {
 	setFirstWindowOpen: Function;
 	setSecondWindowOpen: Function;
 	setThirdWindowOpen: Function;
-    setTxtWindowOpen: Function
+	setTxtWindowOpen: Function;
 };
 
 const Window = ({
@@ -228,7 +51,7 @@ const Window = ({
 	setSecondWindowOpen,
 	setThirdWindowType,
 	setThirdWindowOpen,
-    setTxtWindowOpen
+	setTxtWindowOpen,
 }: Props) => {
 	const [windowLevel] = useState<number>(level);
 	const [path, setPath] = useState<string>('');
@@ -239,21 +62,17 @@ const Window = ({
 				setPath(`/Maxence-Macia/Desktop/${firstWindowType}`);
 				break;
 			case 2:
-				setPath(
-					`/Maxence-Macia/Desktop/Projects/${secondWindowType}`
-				);
+				setPath(`/Maxence-Macia/Desktop/Projects/${secondWindowType}`);
 				break;
 			case 3:
 				if (secondWindowType === 'OpenClassrooms') {
-                    setPath(
-                        `/Maxence-Macia/Desktop/Projects/OpenClassrooms/${thirdWindowType}`
-                    );
-                } else if (secondWindowType === 'Perso') {
-                    setPath(
-                        `/Maxence-Macia/Desktop/Projects/Perso/${thirdWindowType}`
-                    );
-                }
-                break;
+					setPath(
+						`/Maxence-Macia/Desktop/Projects/OpenClassrooms/${thirdWindowType}`
+					);
+				} else if (secondWindowType === 'Perso') {
+					setPath(`/Maxence-Macia/Desktop/Projects/Perso/${thirdWindowType}`);
+				}
+				break;
 		}
 	}, [windowLevel, firstWindowType, secondWindowType, thirdWindowType]);
 
@@ -330,9 +149,9 @@ const Window = ({
 		}
 	};
 
-    const openTxtWindow = () => {
-        setTxtWindowOpen(true);
-    };
+	const openTxtWindow = () => {
+		setTxtWindowOpen(true);
+	};
 
 	return (
 		<Container>
@@ -348,33 +167,48 @@ const Window = ({
 				</Path>
 			</TitleBar>
 			<WindowContent>
-				<TxtFile aboutMe={firstWindowType === 'About-me'} onClick={openTxtWindow}>
+				<TxtFile
+					aboutMe={firstWindowType === 'About-me'}
+					onClick={openTxtWindow}
+				>
 					<TxtFileImg src={txtFile} alt="Fichier txt" />
 					<FigCap> Read me</FigCap>
 				</TxtFile>
-				<a href={firstWindowType === 'CV' ? cvMM : "https://www.linkedin.com/in/maxence-macia-4ab2a617b/"} target="_blank" rel="noreferrer" >
-                    <HtmlFile
-                        cv={firstWindowType === 'CV'}
-                        contact={firstWindowType === 'Contact'}
-                    >
-                        <HtmlFileImg src={htmlFile} alt="Fichier html" />
-                        <FigCap>{firstWindowType === 'CV' ? 'CV' : 'LinkedIn'}</FigCap>
-                    </HtmlFile>
-                </a>
-				<a href='https://github.com/MaxMacia' target="_blank" rel="noreferrer" >
-                    <HtmlFile cv={false} contact={firstWindowType === 'Contact'}>
-                        <HtmlFileImg src={ghFile} alt="Fichier html" />
-                        <FigCap>github</FigCap>
-                    </HtmlFile>
-                </a>
-                <a href='mailto:maxence.macia@gmail.com'>
-                    <EmailFile contact={firstWindowType === 'Contact'}>
-                        <EmailFileImg src={emailFile} alt="Fichier email" />
-                        <FigCap>e-mail</FigCap>
-                    </EmailFile>
-                </a>
+				<a
+					href={
+						firstWindowType === 'CV'
+							? cvMM
+							: 'https://www.linkedin.com/in/maxence-macia-4ab2a617b/'
+					}
+					target="_blank"
+					rel="noreferrer"
+				>
+					<HtmlFile
+						cv={firstWindowType === 'CV'}
+						contact={firstWindowType === 'Contact'}
+					>
+						<HtmlFileImg src={htmlFile} alt="Fichier html" />
+						<FigCap>{firstWindowType === 'CV' ? 'CV' : 'LinkedIn'}</FigCap>
+					</HtmlFile>
+				</a>
+				<a href="https://github.com/MaxMacia" target="_blank" rel="noreferrer">
+					<HtmlFile cv={false} contact={firstWindowType === 'Contact'}>
+						<HtmlFileImg src={ghFile} alt="Fichier html" />
+						<FigCap>github</FigCap>
+					</HtmlFile>
+				</a>
+				<a href="mailto:maxence.macia@gmail.com">
+					<EmailFile contact={firstWindowType === 'Contact'}>
+						<EmailFileImg src={emailFile} alt="Fichier email" />
+						<FigCap>e-mail</FigCap>
+					</EmailFile>
+				</a>
 				<ClosedFolder
-					projects={firstWindowType === 'Projects' && secondWindowType === '' && thirdWindowType === ''}
+					projects={
+						firstWindowType === 'Projects' &&
+						secondWindowType === '' &&
+						thirdWindowType === ''
+					}
 					onClick={openSecondWindow}
 				>
 					<ClosedFolderImg
@@ -385,7 +219,11 @@ const Window = ({
 					<FigCap className="OpenClassrooms">OpenClassrooms</FigCap>
 				</ClosedFolder>
 				<ClosedFolder
-					projects={firstWindowType === 'Projects' && secondWindowType === '' && thirdWindowType === ''}
+					projects={
+						firstWindowType === 'Projects' &&
+						secondWindowType === '' &&
+						thirdWindowType === ''
+					}
 					onClick={openSecondWindow}
 				>
 					<ClosedFolderImg
@@ -397,157 +235,197 @@ const Window = ({
 				</ClosedFolder>
 				{categories[4].subDirectories?.map((entrie, index) => (
 					<ClosedFolderWrapper>
-                        <ClosedFolder
-                            key={`OpenClassrooms-dossier-${index}`}
-                            projects={
-                                secondWindowType === 'OpenClassrooms' && thirdWindowType === ''
-                            }
-                            onClick={openThirdWindow}
-                        >
-                            <ClosedFolderImg
-                                className={typeof entrie.name === 'string' ? entrie.name : ''}
-                                src={closedFolder}
-                                alt={`Dossier ${entrie.title}`}
-                            />
-                            <FigCap
-                                className={typeof entrie.name === 'string' ? entrie.name : ''}
-                            >
-                                {entrie.title}
-                            </FigCap>
-                        </ClosedFolder>
-                        <ClosedFolder
-                            key={`OpenClassrooms-readme-${index}`}
-                            projects={thirdWindowType === `${entrie.name}`}
-                            onClick={openTxtWindow}
-                        >
-                            <ClosedFolderImg
-                                src={txtFile}
-                                alt={`Read me ${entrie.title}`}
-                            />
-                            <FigCap>{entrie.title} <br /> Read me</FigCap>
-                        </ClosedFolder>
-                        <a href={`https://github.com/MaxMacia/Projet_OpenClassrooms_${entrie.name}.git`} target="_blank" rel="noreferrer" >
-                            <ClosedFolder
-                                key={`OpenClassrooms-repo-${index}`}
-                                projects={thirdWindowType === `${entrie.name}`}
-                            >
-                                <ClosedFolderImg
-                                    src={ghFile}
-                                    alt={`Repo gitHub ${entrie.title}`}
-                                />
-                                <FigCap>Repo <br /> gitHub</FigCap>
-                            </ClosedFolder>
-                        </a>
-                        <a href={`https://maxmacia.github.io/Projet_OpenClassrooms_${entrie.name}/`} target="_blank" rel="noreferrer" >
-                            <ClosedFolder
-                                key={`OpenClassrooms-web-${index}`}
-                                projects={thirdWindowType === `${entrie.name}` && entrie.ghPages === true}
-                            >
-                                <ClosedFolderImg
-                                    src={htmlFile}
-                                    alt={`page web ${entrie.title}`}
-                                />
-                                <FigCap>{entrie.title} <br /> Page web</FigCap>
-                            </ClosedFolder>
-                        </a>
-                    </ClosedFolderWrapper>
-				))}
-				{categories[5].subDirectories?.map((entrie, index) => (
-					<ClosedFolderWrapper>
-                        <ClosedFolder
-                            key={`perso-dossier-${index}`}
-                            projects={secondWindowType === 'Perso' && thirdWindowType === ''}
-                            onClick={openThirdWindow}
-                        >
-                            <ClosedFolderImg
-                                className={typeof entrie.name === 'string' ? entrie.name : ''}
-                                src={closedFolder}
-                                alt={`Dossier ${entrie.title}`}
-                            />
-                            <FigCap
-                                className={typeof entrie.name === 'string' ? entrie.name : ''}
-                            >
-                                {entrie.title}
-                            </FigCap>
-                        </ClosedFolder>
-                        <ClosedFolder
-                            key={`perso-readme-${index}`}
-                            projects={thirdWindowType === `${entrie.name}` && index !== 3}
-                            onClick={openTxtWindow}
-                        >
-                            <ClosedFolderImg
-                                src={txtFile}
-                                alt={`Read me ${entrie.title}`}
-                            />
-                            <FigCap>{entrie.title} <br /> Read me</FigCap>
-                        </ClosedFolder>
-                        <a href={`https://github.com/MaxMacia/${entrie.name}.git`} target="_blank" rel="noreferrer" >
-                            <ClosedFolder
-                                key={`perso-repo-${index}`}
-                                projects={thirdWindowType === `${entrie.name}` && index !== 3}
-                            >
-                                <ClosedFolderImg
-                                    src={ghFile}
-                                    alt={`Repo gitHub ${entrie.title}`}
-                                />
-                                <FigCap>Repo <br /> gitHub</FigCap>
-                            </ClosedFolder>
-                        </a>
-                        <a href={`https://maxmacia.github.io/${entrie.name}/`} target="_blank" rel="noreferrer" >
+						<ClosedFolder
+							key={`OpenClassrooms-dossier-${index}`}
+							projects={
+								secondWindowType === 'OpenClassrooms' && thirdWindowType === ''
+							}
+							onClick={openThirdWindow}
+						>
+							<ClosedFolderImg
+								className={typeof entrie.name === 'string' ? entrie.name : ''}
+								src={closedFolder}
+								alt={`Dossier ${entrie.title}`}
+							/>
+							<FigCap
+								className={typeof entrie.name === 'string' ? entrie.name : ''}
+							>
+								{entrie.title}
+							</FigCap>
+						</ClosedFolder>
+						<ClosedFolder
+							key={`OpenClassrooms-readme-${index}`}
+							projects={thirdWindowType === `${entrie.name}`}
+							onClick={openTxtWindow}
+						>
+							<ClosedFolderImg src={txtFile} alt={`Read me ${entrie.title}`} />
+							<FigCap>
+								{entrie.title} <br /> Read me
+							</FigCap>
+						</ClosedFolder>
+						<a
+							href={`https://github.com/MaxMacia/Projet_OpenClassrooms_${entrie.name}.git`}
+							target="_blank"
+							rel="noreferrer"
+						>
 							<ClosedFolder
-								key={`perso-web-${index}`}
-								projects={thirdWindowType === `${entrie.name}` && entrie.ghPages === true && index !== 3}
+								key={`OpenClassrooms-repo-${index}`}
+								projects={thirdWindowType === `${entrie.name}`}
+							>
+								<ClosedFolderImg
+									src={ghFile}
+									alt={`Repo gitHub ${entrie.title}`}
+								/>
+								<FigCap>
+									Repo <br /> gitHub
+								</FigCap>
+							</ClosedFolder>
+						</a>
+						<a
+							href={`https://maxmacia.github.io/Projet_OpenClassrooms_${entrie.name}/`}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<ClosedFolder
+								key={`OpenClassrooms-web-${index}`}
+								projects={
+									thirdWindowType === `${entrie.name}` &&
+									entrie.ghPages === true
+								}
 							>
 								<ClosedFolderImg
 									src={htmlFile}
 									alt={`page web ${entrie.title}`}
 								/>
-								<FigCap>{entrie.title} <br /> Page web</FigCap>
+								<FigCap>
+									{entrie.title} <br /> Page web
+								</FigCap>
 							</ClosedFolder>
 						</a>
-                    </ClosedFolderWrapper>
+					</ClosedFolderWrapper>
 				))}
-				<ClosedFolder
-                    key={'animations-readme'}
-                    projects={thirdWindowType === 'Animations-CSS'}
-                    onClick={openTxtWindow}
-                >
-                    <ClosedFolderImg
-                    	src={txtFile}
-                        alt={'Read me animations CSS'}
-                    />
-                    <FigCap>Read me</FigCap>
-                </ClosedFolder>
-				{Array.isArray(categories[5].subDirectories?.[3].directories) ? (
-					categories[5].subDirectories?.[3].directories.map((entrie, index) => (
-						<ClosedFolderWrapper>
-                        <a href={`https://github.com/MaxMacia/${entrie}.git`} target="_blank" rel="noreferrer" >
-                            <ClosedFolder
-                                key={`animations-${index}`}
-                                projects={thirdWindowType === 'Animations-CSS'}
-                            >
-                                <ClosedFolderImg
-                                    src={ghFile}
-                                    alt={`Repo gitHub ${entrie}`}
-                                />
-                                <FigCap>Repo <br /> gitHub <br /> {entrie.split('_')[2]}</FigCap>
-                            </ClosedFolder>
-                        </a>
-                        <a href={`https://maxmacia.github.io/${entrie}/`} target="_blank" rel="noreferrer" >
+				{categories[5].subDirectories?.map((entrie, index) => (
+					<ClosedFolderWrapper>
+						<ClosedFolder
+							key={`perso-dossier-${index}`}
+							projects={secondWindowType === 'Perso' && thirdWindowType === ''}
+							onClick={openThirdWindow}
+						>
+							<ClosedFolderImg
+								className={typeof entrie.name === 'string' ? entrie.name : ''}
+								src={closedFolder}
+								alt={`Dossier ${entrie.title}`}
+							/>
+							<FigCap
+								className={typeof entrie.name === 'string' ? entrie.name : ''}
+							>
+								{entrie.title}
+							</FigCap>
+						</ClosedFolder>
+						<ClosedFolder
+							key={`perso-readme-${index}`}
+							projects={thirdWindowType === `${entrie.name}` && index !== 3}
+							onClick={openTxtWindow}
+						>
+							<ClosedFolderImg src={txtFile} alt={`Read me ${entrie.title}`} />
+							<FigCap>
+								{entrie.title} <br /> Read me
+							</FigCap>
+						</ClosedFolder>
+						<a
+							href={`https://github.com/MaxMacia/${entrie.name}.git`}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<ClosedFolder
+								key={`perso-repo-${index}`}
+								projects={thirdWindowType === `${entrie.name}` && index !== 3}
+							>
+								<ClosedFolderImg
+									src={ghFile}
+									alt={`Repo gitHub ${entrie.title}`}
+								/>
+								<FigCap>
+									Repo <br /> gitHub
+								</FigCap>
+							</ClosedFolder>
+						</a>
+						<a
+							href={`https://maxmacia.github.io/${entrie.name}/`}
+							target="_blank"
+							rel="noreferrer"
+						>
 							<ClosedFolder
 								key={`perso-web-${index}`}
-								projects={thirdWindowType === 'Animations-CSS'}
+								projects={
+									thirdWindowType === `${entrie.name}` &&
+									entrie.ghPages === true &&
+									index !== 3
+								}
 							>
 								<ClosedFolderImg
 									src={htmlFile}
-									alt={`page web ${entrie}`}
+									alt={`page web ${entrie.title}`}
 								/>
-								<FigCap>Page web <br /> {entrie.split('_')[2]}</FigCap>
+								<FigCap>
+									{entrie.title} <br /> Page web
+								</FigCap>
 							</ClosedFolder>
 						</a>
-						</ClosedFolderWrapper>
-					))
-				) : (null) }
+					</ClosedFolderWrapper>
+				))}
+				<ClosedFolder
+					key={'animations-readme'}
+					projects={thirdWindowType === 'Animations-CSS'}
+					onClick={openTxtWindow}
+				>
+					<ClosedFolderImg src={txtFile} alt={'Read me animations CSS'} />
+					<FigCap>Read me</FigCap>
+				</ClosedFolder>
+				{Array.isArray(categories[5].subDirectories?.[3].directories)
+					? categories[5].subDirectories?.[3].directories.map(
+							(entrie, index) => (
+								<ClosedFolderWrapper>
+									<a
+										href={`https://github.com/MaxMacia/${entrie}.git`}
+										target="_blank"
+										rel="noreferrer"
+									>
+										<ClosedFolder
+											key={`animations-${index}`}
+											projects={thirdWindowType === 'Animations-CSS'}
+										>
+											<ClosedFolderImg
+												src={ghFile}
+												alt={`Repo gitHub ${entrie}`}
+											/>
+											<FigCap>
+												Repo <br /> gitHub <br /> {entrie.split('_')[2]}
+											</FigCap>
+										</ClosedFolder>
+									</a>
+									<a
+										href={`https://maxmacia.github.io/${entrie}/`}
+										target="_blank"
+										rel="noreferrer"
+									>
+										<ClosedFolder
+											key={`perso-web-${index}`}
+											projects={thirdWindowType === 'Animations-CSS'}
+										>
+											<ClosedFolderImg
+												src={htmlFile}
+												alt={`page web ${entrie}`}
+											/>
+											<FigCap>
+												Page web <br /> {entrie.split('_')[2]}
+											</FigCap>
+										</ClosedFolder>
+									</a>
+								</ClosedFolderWrapper>
+							)
+					  )
+					: null}
 			</WindowContent>
 		</Container>
 	);
