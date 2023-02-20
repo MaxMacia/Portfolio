@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.js": "/Portfolio/static/js/main.e456fc59.js",
+    "static/js/787.30237536.chunk.js": "/Portfolio/static/js/787.30237536.chunk.js",
+    "static/media/Kasa-pagedaccueil.png": "/Portfolio/static/media/Kasa-pagedaccueil.dd4a88afbe054417c652.png",
+    "static/media/lapanthere.png": "/Portfolio/static/media/lapanthere.b61e69be55a48a734c33.png",
+    "static/media/Kasa-pageappartement.png": "/Portfolio/static/media/Kasa-pageappartement.cd6dd17bd981db45bfce.png",
+    "static/media/booki-desktop.png": "/Portfolio/static/media/booki-desktop.e21e04c0740ddc1e1a8e.png",
+    "static/media/ohmyfood-restaurants.png": "/Portfolio/static/media/ohmyfood-restaurants.b263529f05f077a30cba.png",
+    "static/media/Kanap-nosproduits.png": "/Portfolio/static/media/Kanap-nosproduits.6b9e379923a19486cd12.png",
+    "static/media/ohmyfood-menus.png": "/Portfolio/static/media/ohmyfood-menus.b3dcbea795db22683932.png",
+    "static/media/HotTakes-pagesauces.png": "/Portfolio/static/media/HotTakes-pagesauces.7501ce44f08838edd6cb.png",
+    "static/media/Kanap-panier.png": "/Portfolio/static/media/Kanap-panier.dc0bbd4a0643f21b3c09.png",
+    "static/media/portfolio-aboutme.png": "/Portfolio/static/media/portfolio-aboutme.c314aea7505bc783c186.png",
+    "static/media/portfolio-pagedaccueil.png": "/Portfolio/static/media/portfolio-pagedaccueil.4b017271ed29b4fef07c.png",
+    "static/media/HotTakes-login.png": "/Portfolio/static/media/HotTakes-login.22915c7df178a0c23938.png",
+    "static/media/Rezo-TL.png": "/Portfolio/static/media/Rezo-TL.fa1337a9978f60f3e149.png",
+    "static/media/booki-mobile.png": "/Portfolio/static/media/booki-mobile.ee97449337ea10233384.png",
+    "static/media/CV_Maxence_Macia.pdf": "/Portfolio/static/media/CV_Maxence_Macia.2b8ff0257124b9ae464d.pdf",
+    "static/media/Rezo-login.png": "/Portfolio/static/media/Rezo-login.758f58a9585bcd4cb3ea.png",
+    "static/media/Calculator.png": "/Portfolio/static/media/Calculator.be7633bff95772aea068.png",
+    "static/media/pp.jpg": "/Portfolio/static/media/pp.2167ae866a715de39bb5.jpg",
+    "static/media/fichier-github.png": "/Portfolio/static/media/fichier-github.638f5cb6ea83f5a49308.png",
+    "static/media/fichier-email.png": "/Portfolio/static/media/fichier-email.fe1dcce0e346f697e996.png",
+    "index.html": "/Portfolio/index.html",
+    "main.e456fc59.js.map": "/Portfolio/static/js/main.e456fc59.js.map",
+    "787.30237536.chunk.js.map": "/Portfolio/static/js/787.30237536.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e456fc59.js"
+  ]
+}
