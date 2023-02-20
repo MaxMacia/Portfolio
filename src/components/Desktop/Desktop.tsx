@@ -5,6 +5,7 @@ import Window from '../Window';
 import TxtWindow from '../TxtWindow';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
+import { devices } from '../../utils/styles/devices';
 
 const Container = styled.div`
 	background-color: ${colors.desktop};
@@ -15,6 +16,22 @@ const Container = styled.div`
 	height: 100%;
 	position: relative;
 	z-index: 0;
+    @media ${devices.mobile} {
+        padding-top: 10px;
+        justify-content: space-around;
+    }
+    @media ${devices.mobileL} {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 90%;
+    }
+    @media ${devices.tablet} {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 90%;
+    }
 `;
 
 const FirstWindowWrapper = styled.div<{ firstWindowOpen: boolean }>`
@@ -29,6 +46,15 @@ const FirstWindowWrapper = styled.div<{ firstWindowOpen: boolean }>`
         height: 597px;
         width: 90%;
         z-index: 1;
+        @media ${devices.mobile} {
+		    height: 460px;
+	    }
+        @media ${devices.mobileL} {
+		    height: 460px;
+	    }
+        @media ${devices.tablet} {
+		    height: 460px;
+	    }
     `}
 `;
 
@@ -39,11 +65,20 @@ const SecondWindowWrapper = styled.div<{ secondWindowOpen: boolean }>`
 		`
         display: block;
         position: absolute;
-        left: 11%;
+        left: 9%;
         top: 60px;
         height: 597px;
         width: 90%;
         z-index: 2;
+        @media ${devices.mobile} {
+		    height: 460px;
+	    }
+        @media ${devices.mobileL } {
+		    height: 460px;
+	    }
+        @media ${devices.tablet} {
+		    height: 460px;
+	    }
     `}
 `;
 
@@ -59,6 +94,15 @@ const ThirdWindowWrapper = styled.div<{ thirdWindowOpen: boolean }>`
         height: 597px;
         width: 90%;
         z-index: 3;
+        @media ${devices.mobile} {
+		    height: 460px;
+	    }
+        @media ${devices.mobileL} {
+		    height: 460px;
+	    }
+        @media ${devices.tablet} {
+		    height: 460px;
+	    }
     `}
 `;
 
@@ -69,11 +113,23 @@ const TxtWindowWrapper = styled.div<{ txtWindowOpen: boolean }>`
 		`
         display: block;
         position: absolute;
-        left: 25%;
+        left: 20%;
         top: 30px;
         height: 599px;
         width: 60%;
         z-index: 4;
+        @media ${devices.mobile} {
+		    width: 95%;
+            left: 5%;
+	    }
+        @media ${devices.mobileL} {
+		    width: 95%;
+            left: 5%;
+	    }
+        @media ${devices.tablet} {
+		    width: 95%;
+            left: 5%;
+	    }
     `}
 `;
 
@@ -85,12 +141,24 @@ const Figure = styled.figure<{ isOnDesktop: boolean }>`
         display: block;
         height: fit-content;
         cursor: pointer;
+        @media ${devices.tablet} {
+            margin: 16px 20px 16px 20px;
+        }
     `}
 `;
 
 const Img = styled.img`
 	height: 100px;
 	margin-bottom: 10px;
+    @media ${devices.mobile} {
+		height: 80px;
+	}
+    @media ${devices.mobileL} {
+		height: 80px;
+	}
+    @media ${devices.tablet} {
+        height: 100px;
+    }
 `;
 
 const FigCap = styled.figcaption`

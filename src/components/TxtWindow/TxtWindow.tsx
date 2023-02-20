@@ -19,6 +19,7 @@ import calculator from '../../assets/Calculator.png';
 import { categories } from '../data/categories';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
+import { devices } from '../../utils/styles/devices';
 
 const Container = styled.div`
 	border: 1px solid ${colors.black};
@@ -49,6 +50,15 @@ const WindowContent = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    @media ${devices.mobile} {
+        justify-content: space-around;
+    }
+    @media ${devices.mobileL} {
+        justify-content: space-around;
+    }
+    @media ${devices.tablet} {
+        justify-content: space-around;
+    }
 `;
 
 const ImgContainer = styled.div`
@@ -80,6 +90,15 @@ const TextContainer = styled.div`
     margin-bottom: 10px;
     text-align: justify;
     overflow: scroll;
+    @media ${devices.mobile} {
+        width: 90%;
+    }
+    @media ${devices.mobileL} {
+        width: 90%;
+    }
+    @media ${devices.tablet} {
+        width: 90%;
+    }
 `;
 
 const Para = styled.p<{ cat: boolean }>`

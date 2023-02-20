@@ -8,11 +8,18 @@ import cvMM from '../../assets/CV_Maxence_Macia.pdf';
 import styled from 'styled-components';
 import { colors } from '../../utils/styles/colors';
 import { useEffect, useState } from 'react';
+import { devices } from '../../utils/styles/devices';
 
 const Container = styled.div`
 	border: 1px solid ${colors.black};
 	width: 90%;
 	height: 597px;
+	@media ${devices.mobile} {
+		height: 460px;
+	}
+	@media ${devices.mobileL} {
+		height: 460px;
+	}
 `;
 
 const TopBar = styled.div`
@@ -43,11 +50,45 @@ const Path = styled.div`
 	width: 50%;
 	margin-top: 5px;
 	margin-left: 10%;
+	@media ${devices.mobile} {
+		width: 95%;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin-left: 3%;
+		height: 18px;
+	}
+	@media ${devices.mobileL} {
+		width: 95%;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin-left: 3%;
+		height: 18px;
+	}
+	@media ${devices.tablet} {
+		width: 95%;
+		overflow-x: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin-left: 3%;
+		height: 18px;
+	}
 `;
 
 const Paragraphe = styled.div`
 	margin: 0;
 	padding-left: 1%;
+	@media ${devices.mobile} {
+		font-size: 0.8em;
+		padding-top: 2px;
+		width: 100%;
+	}
+	@media ${devices.mobileL} {
+		font-size: 0.8em;
+		padding-top: 2px;
+		width: 100%;
+	}
 `;
 
 const WindowContent = styled.div`
@@ -56,6 +97,17 @@ const WindowContent = styled.div`
 	height: 537px;
 	display: flex;
 	flex-wrap: wrap;
+	@media ${devices.mobile} {
+		overflow: scroll;
+		height: 400px;
+	}
+	@media ${devices.mobileL} {
+		overflow: scroll;
+		height: 400px;
+	}
+	@media ${devices.tablet} {
+		overflow: scroll;
+	}
 `;
 
 const TxtFile = styled.figure<{ aboutMe: boolean }>`
@@ -117,6 +169,16 @@ const EmailFileImg = styled.img`
 const ClosedFolderWrapper = styled.div`
     display: flex;
 	flex-wrap: wrap;
+	@media ${devices.mobile} {
+		width: 60%;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	@media ${devices.mobileL} {
+		width: 60%;
+		flex-direction: row;
+		justify-content: space-between;
+	}
 `;
 
 const ClosedFolder = styled.figure<{ projects: boolean }>`
@@ -133,6 +195,12 @@ const ClosedFolder = styled.figure<{ projects: boolean }>`
 const ClosedFolderImg = styled.img`
 	height: 100px;
 	margin-bottom: 10px;
+	@media ${devices.mobile} {
+		height: 80px;
+	}
+	@media ${devices.mobileL} {
+		height: 80px;
+	}
 `;
 
 type Props = {
